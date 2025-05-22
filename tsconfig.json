@@ -1,0 +1,26 @@
+{
+  "extends": "./.nuxt/tsconfig.json",
+  "compilerOptions": {
+    "strict": true,
+    "types": ["vite/client"],
+    "paths": {
+      "~/*": ["./*"],
+      "@/*": ["./*"],
+      "@assets/*": ["./assets/*"],
+      "@components/*": ["./components/*"],
+      "@public/*": ["./public/*"]
+    }
+  },
+  "include": [
+    "**/*.ts",
+    "**/*.vue",
+    ".nuxt/**/*",
+    "components/**/*",
+    "composables/**/*",
+    "assets/**/*"
+  ],
+  "exclude": [
+    "node_modules",
+    "dist"
+  ]
+}

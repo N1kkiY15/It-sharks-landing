@@ -2,6 +2,7 @@ import { fileURLToPath, URL } from 'node:url'
 
 export default defineNuxtConfig({
   devtools: { enabled: true },
+
   alias: {
     '@': fileURLToPath(new URL('./', import.meta.url)),
     '~': fileURLToPath(new URL('./', import.meta.url)),
@@ -10,6 +11,7 @@ export default defineNuxtConfig({
     '@styles': fileURLToPath(new URL('./assets/styles', import.meta.url)),
     '@public': fileURLToPath(new URL('./public', import.meta.url)),
   },
+
   app: {
     head: {
       title: 'IT Sharks',
@@ -25,5 +27,15 @@ export default defineNuxtConfig({
       ]
     }
   },
+  vite: {
+    css: {
+      preprocessorOptions: {
+        scss: {
+          additionalData: '@use "~/assets/styles/variables.scss" as *;'
+        }
+      }
+    }
+  },
   css: ['~/assets/styles/main.scss'],
+  modules: ['@nuxt/image'],
 })

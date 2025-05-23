@@ -6,3 +6,14 @@
   box-sizing: border-box;
 }
 
+a {
+  color: inherit;          /* Наследует цвет текста родителя */
+  text-decoration: none;  /* Убирает подчёркивание */
+  cursor: pointer;        /* Курсор в виде руки (опционально) */
+}
+
+button {
+  background: transparent;
+  border: 0;
+  cursor: pointer;
+}

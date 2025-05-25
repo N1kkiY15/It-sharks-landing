@@ -1,7 +1,7 @@
 <template>
-  <RoundEl aria-label="Telegram">
+  <DefaultButton variant="secondary" aria-label="Telegram">
     <TelegramIcon aria-hidden="true"/>
-  </RoundEl>
+  </DefaultButton>
 </template>
 
 <script setup lang="ts">

@@ -9,17 +9,3 @@
   </svg>
 </template>
 
-<script setup lang="ts">
-// import {inject} from 'vue';
-//
-// const iconSizes = inject('iconSizes', {
-//   base: {width: 35, height: 30} // Fallback
-// });
-//
-// // Реактивный размер (можно привязать к брейкпоинту)
-// const currentSize = computed(() => {
-//   return window.innerWidth < 768
-//       ? iconSizes.sm
-//       : iconSizes.base;
-// });
-</script>

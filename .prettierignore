@@ -1,0 +1,15 @@
+# Ignore artifacts
+.nuxt
+dist
+output
+
+# Ignore dependencies
+node_modules
+
+# Ignore build files
+.output
+.cache
+
+# You might want to ignore specific files or directories here
+# public/
+# .env

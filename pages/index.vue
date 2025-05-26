@@ -1,428 +1,161 @@
 <template>
-  <div class="cover">
-    <div class="cover__heading">
-      <div class="cover__title" aria-label="ONE TO ONE">
-        <span class="cover__title-span" aria-hidden="true">
-            ONE
-        </span>
-        <RightArrow class="cover__title-arrow" aria-hidden="true"/>
-        <span class="cover__title-span" aria-hidden="true">
-            TO
-        </span>
-        <RightArrow class="cover__title-arrow" aria-hidden="true"/>
-        <span class="cover__title-span" aria-hidden="true">
-            ONE
-        </span>
-      </div>
-      <div class="cover__socials">
-        <EmailButton class="cover__socials-button"/>
-        <TelegramButton class="cover__socials-button"/>
-      </div>
-    </div>
-
-    <h1 class="cover__header">
-      <span class="cover__header-line">личное обучение</span>
-      <span class="cover__header-line">менторы</span>
-      <NuxtImg
-          class="cover__image"
-          src="/images/Shark.svg"
-          alt=""
-          role="presentation"
-      />
-    </h1>
-
-    <div class="cover__details">
-      <RoundedContainer>
-        <p class="cover__details-text">Экспертиза</p>
-        <RightArrowS/>
-      </RoundedContainer>
-
-      <RoundedContainer>
-        <p class="cover__details-text">c 2019г.</p>
-      </RoundedContainer>
-    </div>
-
-    <h3 class="cover__exclusive">exclusive .</h3>
-
-
-    <p class="cover__info">Python разработка, Mobile dev, Frontend, Golang, Product manager, ML</p>
-
-    <nav class="cover__buttons">
-      <div class="cover__buttons-more">
-        <p class="cover__buttons-text">читать дальше</p>
-        <DefaultButton variant="secondary" class="cover__buttons-arrow">
-          <DoubleArrow class="cover__buttons-arrow--double"/>
-        </DefaultButton>
-      </div>
-
-      <DefaultButton variant="primary" class="cover__buttons-link">
-        <p class="cover__buttons-question">Кому подойдет ?</p>
-        <RightArrowS class="cover__buttons-arrow--shortest"/>
-        <RightArrowM class="cover__buttons-arrow--short"/>
-        <RightArrowL class="cover__buttons-arrow--long"/>
-        <RightArrowXl class="cover__buttons-arrow--longest"/>
-      </DefaultButton>
-
-    </nav>
-  </div>
+  <Cover />
 
   <div class="about">
+    <div class="about__description">
+      <div class="about__title">
+        <p class="about__box">обо мне</p>
+        <p class="about__text"> Меня зовут Тимур. Я Senior Python-разработчик с 6 годами опыта и доходом
+          750000₽.</p>
+      </div>
 
+      <p class="about__text">Работал в крипте, рекламе, аутсорсе и продуктах, лидил команды и менторил. Помогаю
+        новичкам выйти на доход
+        от 200000₽ и прокачиваю специалистов любого уровня.</p>
+    </div>
+
+    <div class="about__us">
+      <p class="about__us-text">
+        У меня есть своя команда опытных менторов,
+        с которыми мы работаем вместе уже не первый год. Мы сопровождаем
+        наших учеников до выхода на работу и успешного прохождения
+        испытательного срока.
+      </p>
+      <img class="about__us-image" src="/images/image.png" alt="">
+
+      <DefaultButton class="about__us-button" variant="primary">
+        <p class="about__us-link">Наш телеграм-канал</p>
+        <TelegramIcon color="var(--bg-color)" class="about__us-icon"/>
+      </DefaultButton>
+    </div>
   </div>
 </template>
 
 <script setup lang="ts">
-import RightArrow from "@assets/svg/RightArrow.vue";
 import RightArrowS from "@assets/svg/RightArrowS.vue";
-import DoubleArrow from "@assets/svg/DoubleArrow.vue";
-import RightArrowXl from "@assets/svg/RightArrowXL.vue";
-import EmailButton from "@components/EmailButton.vue";
-import TelegramButton from "@components/TelegramButton.vue";
-import RightArrowM from "@assets/svg/RightArrowM.vue";
-import RightArrowL from "@assets/svg/RightArrowL.vue";
+import TelegramIcon from "@assets/svg/TelegramIcon.vue";
 </script>
 
 <style scoped lang="scss">
-.cover {
-  position: relative;
-  margin-bottom: 60px;
+.about {
+  color: var(--text-color);
 
-  @media (min-width: $breakpoint-xl) {
-    margin-bottom: 100px;
-  }
-
-  &__heading {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    gap: 20px;
+  &__description {
+    width: 100%;
+    margin-bottom: 40px;
 
     @media (min-width: $breakpoint-sm) {
-      margin-bottom: 5px;
+      margin-bottom: 44px;
     }
 
     @media (min-width: $breakpoint-md) {
-      flex-direction: row;
-      justify-content: space-between;
-      margin-bottom: 10px;
+      margin-bottom: 70px;
+    }
+
+    @media (min-width: $breakpoint-xl) {
+      max-width: 1043px;
     }
   }
 
   &__title {
     display: flex;
     flex-direction: row;
-    gap: 8px;
-    align-items: center;
-    flex-wrap: wrap;
-
-    //@media (min-width: $breakpoint-md) {
-    //  gap: 15px;
-    //  flex-wrap: nowrap;
-    //}
-
-    &-arrow {
-      width: 22px;
-      height: 16px;
-
-      @media (min-width: $breakpoint-sm) {
-        width: 32px;
-        height: 24px;
-      }
-
-      @media (min-width: $breakpoint-md) {
-        width: 50px;
-        height: 37px;
-      }
-    }
-
-    &-span {
-      font-weight: 400;
-      font-size: 24px;
-      line-height: 100%;
-      letter-spacing: -2%;
-      color: #F4F4F466;
-
-      @media (min-width: $breakpoint-sm) {
-        font-size: 36px;
-      }
-
-      @media (min-width: $breakpoint-md) {
-        font-size: 64px;
-      }
-
-      @media (min-width: $breakpoint-lg) {
-        font-size: 80px;
-      }
-
-      @media (min-width: $breakpoint-xl) {
-        font-size: 96px;
-      }
-    }
+    max-width: 100%;
   }
 
-  &__socials {
-    display: none;
-    flex-direction: row;
-    align-items: center;
-    gap: 5px;
-
-    @media (min-width: $breakpoint-sm) {
-      display: flex;
-    }
-
-    @media (min-width: $breakpoint-md) {
-      gap: 10px;
-    }
-
-    @media (min-width: $breakpoint-xl) {
-      gap: 20px;
-    }
-
-
-    &-button {
-      width: 35px;
-      height: 35px;
-      padding: 9px;
-
-      @media (min-width: $breakpoint-md) {
-        width: 53px;
-        height: 53px;
-        padding: 12px;
-      }
-
-      @media (min-width: $breakpoint-lg) {
-        width: 70px;
-        height: 70px;
-      }
-    }
-  }
-
-  &__header {
-    position: relative;
-    width: 100%;
-    font-weight: 400;
-    font-size: 32px;
-    line-height: 100%;
-    letter-spacing: -1px;
-    color: var(--text-color);
-    text-transform: uppercase;
-    text-align: right;
-
-    @media (min-width: $breakpoint-sm) {
-      font-size: 40px;
-    }
-
-    @media (min-width: $breakpoint-md) {
-      font-size: 64px;
-      margin-bottom: 5px;
-    }
-
-    @media (min-width: $breakpoint-lg) {
-      font-size: 92px;
-    }
-
-    @media (min-width: $breakpoint-xl) {
-      font-size: 110px;
-    }
-
-    @media (min-width: $breakpoint-xxl) {
-      font-size: 124px;
-      margin-bottom: 10px;
-    }
-
-    &-line {
-      display: block;
-      width: 100%;
-
-      &:first-child {
-        text-align: left;
-        position: relative;
-        z-index: 2;
-
-        &::after {
-          content: "/";
-        }
-      }
-    }
-  }
-
-  &__image {
-    position: absolute;
-    width: 143px;
-    height: 114px;
-    top: 0;
-    left: 43px;
-
-    @media (min-width: $breakpoint-sm) {
-      width: 197px;
-      height: 155px;
-      top: -10px;
-      left: 70px;
-    }
-
-    @media (min-width: $breakpoint-md) {
-      width: 247px;
-      height: 195px;
-      left: 220px;
-    }
-
-    @media (min-width: $breakpoint-lg) {
-      width: 355px;
-      height: 280px;
-      left: 200px;
-      top: -15px;
-    }
-
-    @media (min-width: $breakpoint-xl) {
-      width: 502px;
-      height: 397px;
-      left: 260px;
-    }
-
-    @media (min-width: $breakpoint-xxl) {
-      left: 320px;
-    }
-  }
-
-  &__info {
-    color: #F4F4F4B2;
-    max-width: 139px;
+  &__box {
+    flex: auto 0 0;
     font-weight: 400;
     font-size: 12px;
     line-height: 140%;
-    text-align: left;
-    margin: 0 15px 117px auto;
+    letter-spacing: -1%;
+    margin-right: 28px;
+    margin-bottom: 55px;
 
     @media (min-width: $breakpoint-sm) {
+      margin-bottom: 70px;
       font-size: 14px;
-      max-width: 189px;
-      margin: 0 0 103px auto;
     }
 
     @media (min-width: $breakpoint-md) {
-      max-width: 308px;
       font-size: 16px;
-      margin-bottom: 86px;
+      margin-right: 60px;
+      margin-bottom: 32px;
     }
 
     @media (min-width: $breakpoint-lg) {
-      max-width: 384px;
       font-size: 20px;
-      margin-bottom: 60px;
     }
 
     @media (min-width: $breakpoint-xl) {
-      max-width: 384px;
-      font-size: 20px;
-      margin-bottom: 100px;
+
     }
   }
 
-  &__details {
-    position: absolute;
-    top: 183px;
-    left: 0;
-    display: flex;
-    flex-direction: row;
-    gap: 10px;
-
-    @media (min-width: $breakpoint-sm) {
-      top: 200px;
-    }
-
-    @media (min-width: $breakpoint-md) {
-      top: 168px;
-    }
-
-    @media (min-width: $breakpoint-lg) {
-      top: 214px;
-    }
-
-    @media (min-width: $breakpoint-xl) {
-      top: 246px;
-    }
-
-    @media (min-width: $breakpoint-xxl) {
-      top: 264px;
-    }
-
-
-    &-text {
-      color: var(--text-color);
-      font-weight: 400;
-      font-size: 12px;
-
-      @media (min-width: $breakpoint-sm) {
-        font-size: 14px;
-      }
-
-      @media (min-width: $breakpoint-md) {
-        font-size: 16px;
-      }
-
-      @media (min-width: $breakpoint-lg) {
-        font-size: 20px;
-      }
-    }
-  }
-
-  &__exclusive {
-    position: absolute;
-    left: 0;
-    top: 215px;
-    color: var(--text-color);
+  &__text {
     font-weight: 500;
-    font-size: 14px;
+    font-size: 16px;
     line-height: 150%;
     letter-spacing: -1%;
 
     @media (min-width: $breakpoint-sm) {
-      font-size: 16px;
-      top: 240px;
+      font-size: 20px;
     }
 
     @media (min-width: $breakpoint-md) {
-      top: 234px;
       font-size: 24px;
     }
 
     @media (min-width: $breakpoint-lg) {
-      font-size: 36px;
-      top: 284px;
+      font-size: 32px;
     }
 
     @media (min-width: $breakpoint-xl) {
-      top: 324px;
-    }
-
-    @media (min-width: $breakpoint-xxl) {
-      top: 344px;
+      font-size: 36px;
     }
 
   }
 
-  &__buttons {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
+  &__us {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    row-gap: 20px;
+    column-gap: 10px;
 
-    &-more {
-      display: flex;
-      flex-direction: row;
-      gap: 10px;
-      align-items: center;
+    @media (min-width: $breakpoint-sm) {
+      grid-template-columns: 208px 172px;
+      column-gap: 70px;
+    }
 
-      //@media (min-width: $breakpoint-md) {
-      //  gap: 20px;
-      //}
+    @media (min-width: $breakpoint-md) {
+      grid-template-columns: 291px 239px;
+      margin-left: 125px;
+      column-gap: 83px;
+    }
+
+    @media (min-width: $breakpoint-lg) {
+      grid-template-columns: 362px 303px;
+      margin-left: 157px;
+      column-gap: 108px;
+    }
+
+    @media (min-width: $breakpoint-xl) {
+      grid-template-columns: 465px 290px;
+      margin-left: 300px;
+      column-gap: 35px;
+    }
+
+    @media (min-width: $breakpoint-xxl) {
+      grid-template-columns: 445px 290px;
+      margin-left: 324px;
+      column-gap: 92px;
     }
 
     &-text {
-      color: var(--text-color);
       font-weight: 400;
-      font-size: 12px;
+      line-height: 140%;
       letter-spacing: -1%;
-      max-width: 53px;
+      font-size: 12px;
 
       @media (min-width: $breakpoint-sm) {
         font-size: 14px;
@@ -430,124 +163,103 @@ import RightArrowL from "@assets/svg/RightArrowL.vue";
 
       @media (min-width: $breakpoint-md) {
         font-size: 16px;
-        max-width: 76px;
+        max-width: 286px;
+        justify-self: right;
+      }
+
+      @media (min-width: $breakpoint-lg) {
+        font-size: 20px;
+        max-width: 362px;
       }
 
       @media (min-width: $breakpoint-xl) {
         font-size: 20px;
+        max-width: 100%;
       }
+
     }
 
-    &-link {
+    &-button {
       display: flex;
       flex-direction: row;
-      gap: 15px;
       align-items: center;
+      justify-content: center;
+      gap: 10px;
+      grid-column: span 2;
+      align-self: start;
+      background-color: var(--accent-color);
+
+      @media (min-width: $breakpoint-sm) {
+        grid-column: 1;
+        grid-row: 2;
+      }
 
       @media (min-width: $breakpoint-md) {
-        align-self: flex-end;
+        max-width: 238px;
+        max-height: 50px;
+        align-self: end;
+      }
+
+      @media (min-width: $breakpoint-lg) {
+        max-width: 304px;
+        max-height: initial;
         gap: 20px;
       }
     }
 
-    &-question {
-      color: var(--accent-color);
-      max-width: 76px;
-      text-align: left;
-      font-weight: 400;
-      font-size: 12px;
-      line-height: 100%;
+    &-image {
+      width: 161px;
+      height: 211px;
 
       @media (min-width: $breakpoint-sm) {
-        font-size: 14px;
+        width: 172px;
+        height: 227px;
+        grid-row: span 2;
       }
 
       @media (min-width: $breakpoint-md) {
-        font-size: 16px;
-        max-width: initial;
+        width: 239px;
+        height: 315px;
+      }
+
+      @media (min-width: $breakpoint-lg) {
+        width: 303px;
+        height: 400px;
       }
 
       @media (min-width: $breakpoint-xl) {
+        width: 290px;
+      }
+    }
+
+    &-link {
+      font-family: "Clash Display", arial, sans-serif;
+      padding: 3px 0;
+      font-weight: 400;
+      font-size: 14px;
+      line-height: 100%;
+
+      @media (min-width: $breakpoint-md) {
+        font-size: 16px;
+      }
+
+      @media (min-width: $breakpoint-lg) {
+        padding: 0;
         font-size: 20px;
       }
     }
 
-    &-arrow {
-      width: 40px;
-      height: 40px;
+    &-icon {
+      width: 17px;
+      height: 15px;
 
       @media (min-width: $breakpoint-md) {
-        width: 60px;
-        height: 60px;
-      }
-
-      @media (min-width: $breakpoint-lg) {
-        width: 100px;
-        height: 100px;
-      }
-
-      &--double {
-        height: 12px;
-        width: 12px;
-
-        @media (min-width: $breakpoint-md) {
-          height: 17px;
-          width: 17px;
-        }
-
-        @media (min-width: $breakpoint-lg) {
-          height: 27px;
-          width: 27px;
-        }
-      }
-
-      &--shortest {
-        height: 12px;
-        width: 15px;
-
-        @media (min-width: $breakpoint-sm) {
-          display: none;
-        }
-      }
-
-      &--short {
-        display: none;
-        height: 12px;
-        width: 25px;
-
-        @media (min-width: $breakpoint-sm) {
-          display: block;
-        }
-
-        @media (min-width: $breakpoint-md) {
-          display: none;
-        }
-      }
-
-      &--long {
-        display: none;
-        height: 12px;
-        width: 50px;
-
-        @media (min-width: $breakpoint-md) {
-          display: block;
-        }
-
-        @media (min-width: $breakpoint-lg) {
-          display: none;
-        }
-      }
-
-      &--longest {
-        display: none;
-        height: 12px;
-        width: 100px;
-
-        @media (min-width: $breakpoint-lg) {
-          display: block;
-        }
+        width: 23px;
+        height: 20px;
       }
     }
   }
+
 }
+
 </style>

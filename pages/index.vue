@@ -1,5 +1,5 @@
 <template>
-  <Cover />
+  <Cover/>
 
   <div class="about">
     <div class="about__description">
@@ -29,11 +29,14 @@
       </DefaultButton>
     </div>
   </div>
+
+
+  <Program />
 </template>
 
 <script setup lang="ts">
-import RightArrowS from "@assets/svg/RightArrowS.vue";
 import TelegramIcon from "@assets/svg/TelegramIcon.vue";
+import Program from "@components/Program/Program.vue";
 </script>
 
 <style scoped lang="scss">

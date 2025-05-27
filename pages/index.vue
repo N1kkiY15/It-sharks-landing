@@ -30,7 +30,7 @@
     </div>
   </div>
 
-  <Team />
+  <TeamSection />
 </template>
 
 <script setup lang="ts">

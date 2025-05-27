@@ -1,17 +1,22 @@
 <template>
-  <div class="team-menu">
-    <div class="team-menu__card"
-         v-for="(item, index) in cards"
-         :key="index"
-         :id="`card-${index}`">
+  <div class="team-menu" aria-label="Команда менторов">
+    <article
+        v-for="(item, index) in cards"
+        :key="index"
+        :id="`card-${index}`"
+        class="team-menu__card"
+        role="article"
+      >
 
       <h3 class="team-menu__card-header">{{ item.header }}</h3>
 
-      <div class="team-menu__card-authors">
+      <div class="team-menu__card-authors" aria-label="Список менторов">
         <div
             v-for="(author, authorIndex) in item.authors"
             :key="authorIndex"
-            :id="`card-${index}`">
+            role="listitem"
+            :id="`card-${index}`"
+        >
 
           <div class="team-menu__card-author">
             <h4 class="team-menu__card-name">{{ author.name }}</h4>
@@ -19,7 +24,7 @@
           </div>
         </div>
       </div>
-    </div>
+    </article>
   </div>
 </template>
 

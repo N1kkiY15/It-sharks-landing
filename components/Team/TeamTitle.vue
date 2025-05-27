@@ -1,8 +1,7 @@
 <template>
   <div class="team-title">
-
     <div class="team-title__container">
-      <span class="team-title__heading">КомандА</span>
+      <span class="team-title__heading">Команда</span>
 
       <div class="team-title__description">
         <p class="team-title__description-text"> За все время суммарного обучения мы с командой «вкатили» более 80
@@ -10,24 +9,29 @@
           с моей личной поддержкой.
         </p>
 
-        <nav class="team-title__nav">
+        <nav class="team-title__nav" aria-label="Навигация по команде">
           <DefaultButton
               variant="primary"
               class="team-title__nav-button team-title__nav-button--left"
-              @click="previousCard">
-            <ArrowAccent class="team-title__nav-arrow"/>
+              @click="previousCard"
+              aria-label="Предыдущая карточка"
+          >
+            <ArrowAccent aria-hidden="true"/>
           </DefaultButton>
 
-          <DefaultButton variant="primary" class="team-title__nav-button" @click="nextCard">
-            <ArrowAccent class="team-title__nav-arrow"/>
+          <DefaultButton
+              variant="primary"
+              class="team-title__nav-button"
+              @click="nextCard"
+              aria-label="Следующая карточка"
+          >
+            <ArrowAccent aria-hidden="true"/>
           </DefaultButton>
         </nav>
       </div>
     </div>
-    <StarType1 class="team-title__star"/>
+    <StarType1 class="team-title__star" aria-hidden="true"/>
   </div>
-
-
 </template>
 
 <script setup lang="ts">
@@ -144,10 +148,6 @@ const nextCard = () => {
       &--left {
         transform: rotate(180deg);
       }
-    }
-
-    &-arrow {
-
     }
   }
 

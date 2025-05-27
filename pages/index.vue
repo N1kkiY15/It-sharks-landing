@@ -242,10 +242,9 @@ import TelegramIcon from "@assets/svg/TelegramIcon.vue";
       font-weight: 400;
       font-size: 14px;
       line-height: 100%;
-€
       @media (min-width: $breakpoint-md) {
-        font-size: 16px;
-      }
+      font-size: 16px;
+    }
 
       @media (min-width: $breakpoint-lg) {
         padding: 0;
@@ -263,7 +262,6 @@ import TelegramIcon from "@assets/svg/TelegramIcon.vue";
       }
     }
   }
-
 }
 
 </style>

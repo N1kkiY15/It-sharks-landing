@@ -1,5 +1,5 @@
 <template>
-  <Cover />
+  <Cover/>
 
   <div class="about">
     <div class="about__description">
@@ -29,16 +29,20 @@
       </DefaultButton>
     </div>
   </div>
+
+  <TeamSection />
 </template>
 
 <script setup lang="ts">
-import RightArrowS from "@assets/svg/RightArrowS.vue";
 import TelegramIcon from "@assets/svg/TelegramIcon.vue";
+
+
 </script>
 
 <style scoped lang="scss">
 .about {
   color: var(--text-color);
+  margin-bottom: 40px;
 
   &__description {
     width: 100%;
@@ -238,10 +242,9 @@ import TelegramIcon from "@assets/svg/TelegramIcon.vue";
       font-weight: 400;
       font-size: 14px;
       line-height: 100%;
-
       @media (min-width: $breakpoint-md) {
-        font-size: 16px;
-      }
+      font-size: 16px;
+    }
 
       @media (min-width: $breakpoint-lg) {
         padding: 0;
@@ -259,7 +262,6 @@ import TelegramIcon from "@assets/svg/TelegramIcon.vue";
       }
     }
   }
-
 }
 
 </style>

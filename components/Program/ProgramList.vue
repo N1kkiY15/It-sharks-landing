@@ -11,22 +11,11 @@
       >
         {{ step.text }}
       </p>
-      <div class="program-list__card-decorate card-decorate">
-        <div class="card-decorate__step" aria-hidden="true">
-          <div class="card-decorate__step-figure">
-            <span class="card-decorate__step-digit">
-              {{ index + 1 }}
-            </span>
-          </div>
-          <span class="card-decorate__text">этап</span>
-        </div>
-        <component
-            :is="step.starComponent"
-            class="card-decorate__star"
-            aria-hidden="true"
-            focusable="false"
-        />
-      </div>
+      <ProgramCardDecorate
+          :index="index"
+          :starComponent="step.starComponent"
+          class="program-list__card-decorate"
+      />
     </div>
   </div>
 </template>
@@ -37,6 +26,7 @@ import StarType4 from "@assets/svg/StarType4.vue";
 import StarType5 from "@assets/svg/StarType5.vue";
 import StarType1 from "@assets/svg/StarType1.vue";
 import StarType2 from "@assets/svg/StarType2.vue";
+import ProgramCardDecorate from "@components/Program/ProgramCardDecorate.vue";
 
 
 type StarComponentType = typeof StarType1 | typeof StarType2 | typeof StarType3 | typeof StarType4 | typeof StarType5;
@@ -116,77 +106,6 @@ const steps: ProgramStep[] = [
       flex-direction: row;
       justify-content: space-between;
       align-items: center;
-    }
-  }
-}
-
-.card-decorate {
-  &__step {
-    display: flex;
-    flex-direction: row;
-    gap: 5px;
-    align-items: center;
-
-    @media (min-width: $breakpoint-md) {
-      gap: 10px;
-    }
-
-    &-figure {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      background-color: #F4F4F41A;
-      width: 25px;
-      height: 25px;
-      border-radius: 50%;
-
-      @media (min-width: $breakpoint-md) {
-        width: 35px;
-        height: 35px;
-      }
-
-      @media (min-width: $breakpoint-lg) {
-        width: 50px;
-        height: 50px;
-      }
-    }
-
-    &-digit {
-      color: var(--accent-color);
-      font-weight: 500;
-      font-size: 20px;
-      line-height: 150%;
-      letter-spacing: -1%;
-
-      @media (min-width: $breakpoint-md) {
-        font-size: 24px;
-      }
-
-      @media (min-width: $breakpoint-lg) {
-        font-size: 36px;
-      }
-    }
-  }
-
-  &__text {
-    color: var(--text-color);
-    font-weight: 500;
-    font-size: 20px;
-    line-height: 150%;
-    letter-spacing: -1%;
-
-    @media (min-width: $breakpoint-lg) {
-      font-size: 36px;
-    }
-  }
-
-  &__star {
-    width: 25px;
-    height: 25px;
-
-    @media (min-width: $breakpoint-md) {
-      width: 50px;
-      height: 50px;
     }
   }
 }

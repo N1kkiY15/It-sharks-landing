@@ -8,9 +8,9 @@
         <a class="header__navigation-link" href="#" aria-label="Перейти к разделу отзывы">Отзывы </a>
       </div>
 
-      <LinkComponent variant="primary" class="header__navigation-button">
+      <ButtonComponent variant="primary" class="header__navigation-button">
         <a class="header__navigation-order" href="#" aria-label="Перейти к выбору тарифа">Выбрать тариф</a>
-      </LinkComponent>
+      </ButtonComponent>
     </nav>
     <div class="header__mobile">
       <div class="header__mobile-container">

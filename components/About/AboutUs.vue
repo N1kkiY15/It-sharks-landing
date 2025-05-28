@@ -8,10 +8,10 @@
     </p>
     <img class="about-us__image" src="/images/image.png" alt="" loading="lazy">
 
-    <LinkComponent class="about-us__link" variant="primary" href="#">
+    <ButtonComponent class="about-us__link" variant="primary">
       <p class="about-us__link-text">Наш телеграм-канал</p>
       <TelegramIcon color="var(--bg-color)" class="about-us__icon"/>
-    </LinkComponent>
+    </ButtonComponent>
   </div>
 </template>
 

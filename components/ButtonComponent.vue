@@ -1,20 +1,20 @@
 <template>
-  <a :class="linkClasses">
+  <button :class="buttonClasses">
     <slot></slot>
-  </a>
+  </button>
 </template>
 
 <script setup lang="ts">
 
-type linkVariant = "primary" | "secondary";
+type buttonVariant = "primary" | "secondary";
 
 interface Props {
-  variant: linkVariant;
+  variant: buttonVariant;
 }
 
 const props = defineProps<Props>();
 
-const linkClasses = computed(() => ({
+const buttonClasses = computed(() => ({
   primary: props.variant === "primary",
   secondary: props.variant === "secondary",
 }));

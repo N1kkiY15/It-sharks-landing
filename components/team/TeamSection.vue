@@ -13,14 +13,10 @@
 </template>
 
 <script setup lang="ts">
+import type {TeamArray} from '@/types/team';
+import {useCardNavigation} from "~/composables/useScrollToCard";
 
-import type {Card} from '@/types/team';
-
-const currentCardIndex = ref<number>(0);
-const CARDS_ID_IN_ARRAY = 5;
-
-
-const cards: Card[] = [
+const cards: TeamArray[] = [
   {
     header: "Python разработка",
     authors: [
@@ -89,31 +85,9 @@ const cards: Card[] = [
   },
 
 ]
+const CARDS_IN_ARRAY = cards.length - 1;
 
-const handlePreviousCard = (): void => {
-  if (currentCardIndex.value !== 0) {
-    currentCardIndex.value--;
-  }
-  scrollToCard();
-};
-
-const handleNextCard = (): void => {
-  if (currentCardIndex.value !== CARDS_ID_IN_ARRAY) {
-    currentCardIndex.value++;
-  }
-  scrollToCard();
-};
-
-const scrollToCard = (): void => {
-  const cardElement = document.getElementById(`card-${currentCardIndex.value}`);
-  if (cardElement) {
-    cardElement.scrollIntoView({
-      behavior: 'smooth',
-      block: 'nearest',
-      inline: 'center'
-    });
-  }
-};
+const {handlePreviousCard, handleNextCard} = useCardNavigation(CARDS_IN_ARRAY, "team");
 </script>
 
 <style scoped lang="scss">
@@ -150,6 +124,8 @@ const scrollToCard = (): void => {
       grid-template-columns: 1fr 1fr;
       grid-template-rows: repeat(3, 284px);
       width: 100%;
+      padding: 0;
+      margin-left: 0;
     }
 
     @media (min-width: $breakpoint-lg) {

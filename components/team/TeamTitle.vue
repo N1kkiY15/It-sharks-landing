@@ -9,25 +9,8 @@
           с моей личной поддержкой.
         </p>
 
-        <nav class="team-title__nav" aria-label="Навигация по команде">
-          <DefaultButton
-              variant="primary"
-              class="team-title__nav-button team-title__nav-button--left"
-              @click="previousCard"
-              aria-label="Предыдущая карточка"
-          >
-            <ArrowAccent aria-hidden="true"/>
-          </DefaultButton>
+        <ArrowNavigation @previous-card="handlePreviousCard" @next-card="handleNextCard"/>
 
-          <DefaultButton
-              variant="primary"
-              class="team-title__nav-button"
-              @click="nextCard"
-              aria-label="Следующая карточка"
-          >
-            <ArrowAccent aria-hidden="true"/>
-          </DefaultButton>
-        </nav>
       </div>
     </div>
     <StarType1 class="team-title__star" aria-hidden="true"/>
@@ -35,7 +18,6 @@
 </template>
 
 <script setup lang="ts">
-import ArrowAccent from "@assets/svg/ArrowAccent.vue";
 import StarType1 from "@assets/svg/Stars/StarType1.vue";
 
 const emit = defineEmits<{
@@ -43,11 +25,11 @@ const emit = defineEmits<{
   (e: 'next-card'): void
 }>()
 
-const previousCard = () => {
+const handlePreviousCard = () => {
   emit('previous-card')
 }
 
-const nextCard = () => {
+const handleNextCard = () => {
   emit('next-card')
 }
 
@@ -124,29 +106,6 @@ const nextCard = () => {
       @media (min-width: $breakpoint-lg) {
         font-size: 20px;
         max-width: 610px;
-      }
-    }
-  }
-
-  &__nav {
-    display: flex;
-    flex-direction: row;
-    gap: 5px;
-
-    @media (min-width: $breakpoint-md) {
-      display: none;
-    }
-
-    &-button {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      padding: 10px;
-      height: 40px;
-      width: 40px;
-
-      &--left {
-        transform: rotate(180deg);
       }
     }
   }

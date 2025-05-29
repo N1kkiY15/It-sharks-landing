@@ -31,11 +31,11 @@
   </div>
 
   <TeamSection />
+  <StoriesSection />
 </template>
 
 <script setup lang="ts">
 import TelegramIcon from "@assets/svg/TelegramIcon.vue";
-
 
 </script>
 

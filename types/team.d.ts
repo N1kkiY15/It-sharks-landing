@@ -3,7 +3,7 @@ export interface Author {
     description: string;
 }
 
-export interface Card {
+export interface TeamArray {
     header: string;
     authors: Author[];
 }

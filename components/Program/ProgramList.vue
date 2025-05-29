@@ -11,7 +11,7 @@
       >
         {{ step.text }}
       </p>
-      <ProgramCardDecorate
+      <ProgramCardDecor
           :index="index"
           :starComponent="step.starComponent"
           class="program-list__card-decorate"
@@ -26,7 +26,7 @@ import StarType4 from "@assets/svg/StarType4.vue";
 import StarType5 from "@assets/svg/StarType5.vue";
 import StarType1 from "@assets/svg/StarType1.vue";
 import StarType2 from "@assets/svg/StarType2.vue";
-import ProgramCardDecorate from "@components/Program/ProgramCardDecorate.vue";
+import ProgramCardDecor from "@components/Program/ProgramCardDecor.vue";
 
 
 type StarComponentType = typeof StarType1 | typeof StarType2 | typeof StarType3 | typeof StarType4 | typeof StarType5;

@@ -1,6 +1,17 @@
 <template>
-  <div :id="`story-${cardIndex}`" class="stories-card">
-    <StoriesCardDescription :startText=props.card.first :endText=props.card.second />
+  <div :id="`story-${props.card.id}`" class="stories-card">
+    <div class="stories-card__content" aria-label="Сравнение точек А и B">
+      <div class="stories-card__content-description">
+        <span class="stories-card__content-heading">Точка А:</span>
+        <p class="stories-card__content-text">{{ props.card.first }}</p>
+      </div>
+
+      <div class="stories-card__content-description">
+        <span class="stories-card__content-heading">Точка B:</span>
+        <p class="stories-card__content-text">{{ props.card.second }}</p>
+      </div>
+    </div>
+
     <div class="stories-card__author">
       <span class="stories-card__author-name">
         {{ props.card.name }}
@@ -14,9 +25,8 @@
 
 <script setup lang="ts">
 
-import StoriesCardDescription from "@components/stories/StoriesCardDescription.vue";
-
 interface Card {
+  id: number;
   first: string;
   second: string;
   name: string;
@@ -25,7 +35,6 @@ interface Card {
 
 const props = defineProps<{
   card: Card;
-  cardIndex: number;
 }>();
 
 </script>
@@ -39,6 +48,63 @@ const props = defineProps<{
   height: auto;
   gap: 15px;
   max-width: 230px;
+
+  &__content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+
+    &-description {
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+
+      @media (min-width: $breakpoint-md) {
+        gap: 10px;
+      }
+    }
+
+    &-heading {
+      color: #F4F4F4B2;
+      font-weight: 400;
+      font-size: 12px;
+      line-height: 140%;
+      letter-spacing: -1%;
+
+      @media (min-width: $breakpoint-sm) {
+        font-size: 14px;
+      }
+
+      @media (min-width: $breakpoint-md) {
+        font-size: 16px;
+      }
+
+      @media (min-width: $breakpoint-lg) {
+        font-size: 20px;
+      }
+    }
+
+    &-text {
+      font-weight: 400;
+      font-size: 12px;
+      line-height: 140%;
+      letter-spacing: -1%;
+      min-width: auto;
+
+      @media (min-width: $breakpoint-sm) {
+        font-size: 14px;
+      }
+
+      @media (min-width: $breakpoint-md) {
+        font-size: 16px;
+      }
+
+      @media (min-width: $breakpoint-lg) {
+        font-size: 20px;
+      }
+    }
+  }
 
   @media (min-width: $breakpoint-sm) {
     max-width: 290px;

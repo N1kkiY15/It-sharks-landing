@@ -15,10 +15,10 @@
 </template>
 
 <script setup lang="ts">
-import type {TeamArray} from '@/types/team';
+import type {TeamCard} from '@/types/team';
 import {useCardNavigation} from "~/composables/useScrollToCard";
 
-const cards: TeamArray[] = [
+const cards: TeamCard[] = [
   {
     header: "Python разработка",
     authors: [

@@ -1,14 +1,11 @@
 <template>
   <section class="story">
-
     <StoriesTitle @previous-card="handlePreviousCard" @next-card="handleNextCard"/>
-
     <div class="story__cards">
       <StoriesCard
           v-for="(card, index) in stories"
           :key="index"
           :card="card"
-          :card-index="index"
       />
     </div>
   </section>
@@ -17,20 +14,30 @@
 <script setup lang="ts">
 import {useCardNavigation} from '@/composables/useScrollToCard';
 
-const stories = [
+interface StoriesCard {
+  id: number;
+  first: string;
+  second: string;
+  name: string;
+  age: string;
+}
+const stories: StoriesCard[] = [
   {
+    id: 0,
     first: `Работал инженером конструктором на производстве, в какой‑то момент решил начать изучать Python, освоил базовый синтаксис`,
     second: `Спустя 4 месяца устроился на первую работу с окладом 220 т. р. в компанию, занимающуюся рекламой`,
     name: `Марат`,
     age: `35 лет`,
   },
   {
+    id: 1,
     first: `Бросил универ, занимался сам, был знаком базово с фреймворками и базами данных`,
     second: `Спустя 3 месяца получил оффер на 330 т. р. на руки на удаленку в крипто-платёжную систему`,
     name: `Никита`,
     age: `24 года`,
   },
   {
+    id: 2,
     first: `Студент 3 курса, неплохая база, работал с фреймворками, немного на фрилансе, откликался безуспешно`,
     second: `Принял сразу 2 оффера спустя 4 месяца обучения на 220 т.р. в финтех и 180 т.р. в вендинговую компании`,
     name: `Александр`,

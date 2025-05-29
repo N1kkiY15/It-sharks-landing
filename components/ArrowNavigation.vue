@@ -3,8 +3,8 @@
     <DefaultButton
         variant="primary"
         class="navigation__button navigation__button--left"
-        @click="previousCard"
         aria-label="Предыдущая карточка"
+        @click="previousCard"
     >
       <ArrowAccent class="navigation__arrow" aria-hidden="true" />
     </DefaultButton>

@@ -1,6 +1,8 @@
 <template>
   <section class="team">
+
     <TeamTitle @previous-card="handlePreviousCard" @next-card="handleNextCard"/>
+
     <div class="team__cards">
       <TeamCard
           v-for="(card, index) in cards"

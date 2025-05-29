@@ -1,7 +1,19 @@
 <template>
-  <div class="story-title">
-    <span class="story-title__heading">Реальные истории моих учеников</span>
-    <ArrowNavigation class="story-title__nav" @previous-card="handlePreviousCard" @next-card="handleNextCard"/>
+  <div class="story-title" aria-labelledby="story-heading">
+    <h2
+        class="story-title__heading"
+        id="story-heading"
+        role="heading"
+    >
+      Реальные истории моих учеников
+    </h2>
+
+    <ArrowNavigation
+        class="story-title__nav"
+        aria-label="Навигация по историям"
+        @previous-card="handlePreviousCard"
+        @next-card="handleNextCard"
+    />
   </div>
 </template>
 

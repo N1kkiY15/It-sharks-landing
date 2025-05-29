@@ -15,8 +15,7 @@
 </template>
 
 <script setup lang="ts">
-import { useCardNavigation } from '@/composables/useScrollToCard';
-import StoriesTitle from "@components/stories/StoriesTitle.vue";
+import {useCardNavigation} from '@/composables/useScrollToCard';
 
 const stories = [
   {
@@ -39,7 +38,7 @@ const stories = [
   },
 ]
 const CARDS_IN_ARRAY = stories.length - 1;
-const {handlePreviousCard, handleNextCard } = useCardNavigation(CARDS_IN_ARRAY, "story");
+const {handlePreviousCard, handleNextCard} = useCardNavigation(CARDS_IN_ARRAY, "story");
 </script>
 
 <style scoped lang="scss">
@@ -48,6 +47,7 @@ const {handlePreviousCard, handleNextCard } = useCardNavigation(CARDS_IN_ARRAY, 
   display: flex;
   flex-direction: column;
   gap: 20px;
+  height: 100%;
 
   @media (min-width: $breakpoint-sm) {
     gap: 40px;
@@ -64,6 +64,7 @@ const {handlePreviousCard, handleNextCard } = useCardNavigation(CARDS_IN_ARRAY, 
   &__cards {
     display: flex;
     flex-direction: row;
+    align-items: stretch;
     gap: 10px;
     width: calc(100% + 2 * 15px);
     margin-left: calc(-1 * 15px);
@@ -71,23 +72,28 @@ const {handlePreviousCard, handleNextCard } = useCardNavigation(CARDS_IN_ARRAY, 
     overflow-x: scroll;
     scroll-snap-type: x mandatory;
     scrollbar-width: none;
-    overflow-x: scroll;
+    min-height: 234px;
 
-    //@media (min-width: $breakpoint-md) {
-    //  display: grid;
-    //  grid-template-columns: 1fr 1fr;
-    //  grid-template-rows: repeat(3, 284px);
-    //  width: 100%;
-    //}
-    //
-    //@media (min-width: $breakpoint-lg) {
-    //  grid-template-columns: repeat(3, 1fr);
-    //  grid-template-rows: repeat(2, minmax(350px, auto));
-    //}
-    //
-    //@media (min-width: $breakpoint-xl) {
-    //  gap: 30px;
-    //}
+    @media (min-width: $breakpoint-sm) {
+      gap: 15px;
+    }
+
+    @media (min-width: $breakpoint-md) {
+      gap: 30px;
+    }
+
+    @media (min-width: $breakpoint-lg) {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 25px;
+      padding: 0;
+      margin-left: 0;
+      width: initial;
+    }
+
+    @media (min-width: $breakpoint-xl) {
+      gap: 30px;
+    }
 
     &::-webkit-scrollbar {
       display: none;

@@ -1,6 +1,8 @@
 <template>
   <Cover class="cover"/>
   <About class="about"/>
+  <TeamSection />
+  <ProgramSection />
 </template>
 
 <script setup lang="ts">

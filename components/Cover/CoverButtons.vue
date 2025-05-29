@@ -2,18 +2,18 @@
   <nav class="cover-buttons">
     <div class="cover-buttons__more">
       <p class="cover-buttons__text">читать дальше</p>
-      <DefaultButton variant="secondary" class="cover-buttons__arrow">
+      <ButtonComponent variant="secondary" class="cover-buttons__arrow">
         <DoubleArrow class="cover-buttons__arrow--double"/>
-      </DefaultButton>
+      </ButtonComponent>
     </div>
 
-    <DefaultButton variant="primary" class="cover-buttons__link">
+    <ButtonComponent variant="primary" class="cover-buttons__link">
       <p class="cover-buttons__question">Кому подойдет ?</p>
       <RightArrowS class="cover-buttons__icon cover-buttons__icon--xs"/>
       <RightArrowM class="cover-buttons__icon cover-buttons__icon--sm"/>
       <RightArrowL class="cover-buttons__icon cover-buttons__icon--md"/>
       <RightArrowXl class="cover-buttons__icon cover-buttons__icon--lg"/>
-    </DefaultButton>
+    </ButtonComponent>
   </nav>
 </template>
 

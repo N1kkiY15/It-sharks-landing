@@ -1,7 +1,7 @@
 <template>
-  <DefaultButton variant="secondary" aria-label="Email">
+  <ButtonComponent variant="secondary" aria-label="Email">
     <MailIcon aria-hidden="true"/>
-  </DefaultButton>
+  </ButtonComponent>
 </template>
 
 <script setup lang="ts">

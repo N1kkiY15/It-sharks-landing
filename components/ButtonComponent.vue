@@ -6,12 +6,10 @@
 
 <script setup lang="ts">
 
-type ButtonVariant = "primary" | "secondary";
-// type ButtonSize = "xl" | "l" | "m";
+type buttonVariant = "primary" | "secondary";
 
 interface Props {
-  variant: ButtonVariant;
-  // size?: ButtonSize;
+  variant: buttonVariant;
 }
 
 const props = defineProps<Props>();
@@ -19,10 +17,6 @@ const props = defineProps<Props>();
 const buttonClasses = computed(() => ({
   primary: props.variant === "primary",
   secondary: props.variant === "secondary",
-  // special: props.variant === "special",
-  // "button__size-xl": props.size === "xl",
-  // "button__size-l": props.size === "l",
-  // "button__size-m": props.size === "m",
 }));
 
 </script>

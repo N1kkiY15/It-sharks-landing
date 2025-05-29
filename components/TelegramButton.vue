@@ -1,7 +1,7 @@
 <template>
-  <DefaultButton variant="secondary" aria-label="Telegram">
+  <ButtonComponent variant="secondary" aria-label="Telegram">
     <TelegramIcon aria-hidden="true"/>
-  </DefaultButton>
+  </ButtonComponent>
 </template>
 
 <script setup lang="ts">

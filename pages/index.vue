@@ -3,6 +3,7 @@
   <About class="about"/>
   <TeamSection />
   <ProgramSection />
+  <GradesSection />
 </template>
 
 <script setup lang="ts">

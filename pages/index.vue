@@ -1,8 +1,9 @@
 <template>
   <Cover class="cover"/>
   <About class="about"/>
-  <TeamSection />
-  <ProgramSection />
+  <TeamSection class="team"/>
+  <ProgramSection class="program"/>
+  <GradesSection class="grades"/>
 </template>
 
 <script setup lang="ts">
@@ -10,7 +11,10 @@
 </script>
 
 <style scoped lang="scss">
-.cover, .about {
+.about,
+.team,
+.program,
+.grades {
   margin-bottom: 40px;
 
   @media (min-width: $breakpoint-sm) {
@@ -18,7 +22,7 @@
   }
 
   @media (min-width: $breakpoint-md) {
-    margin-bottom: 80px;
+    margin-bottom: 100px;
   }
 
   @media (min-width: $breakpoint-lg) {
@@ -34,7 +38,11 @@
   }
 
   @media (min-width: $breakpoint-md) {
-    margin-bottom: 100px; // для .about
+    margin-bottom: 100px;
+  }
+
+  @media (min-width: $breakpoint-lg) {
+    margin-bottom: 150px;
   }
 }
 

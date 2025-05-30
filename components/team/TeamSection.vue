@@ -14,7 +14,7 @@
 
 <script setup lang="ts">
 
-import type {Card} from '@/types/team';
+import type {Card} from '@/types';
 
 const currentCardIndex = ref<number>(0);
 const CARDS_ID_IN_ARRAY = 5;

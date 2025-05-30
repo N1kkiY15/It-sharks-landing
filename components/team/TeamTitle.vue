@@ -10,23 +10,23 @@
         </p>
 
         <nav class="team-title__nav" aria-label="Навигация по команде">
-          <DefaultButton
+          <ButtonComponent
               variant="primary"
               class="team-title__nav-button team-title__nav-button--left"
               @click="previousCard"
               aria-label="Предыдущая карточка"
           >
             <ArrowAccent aria-hidden="true"/>
-          </DefaultButton>
+          </ButtonComponent>
 
-          <DefaultButton
+          <ButtonComponent
               variant="primary"
               class="team-title__nav-button"
               @click="nextCard"
               aria-label="Следующая карточка"
           >
             <ArrowAccent aria-hidden="true"/>
-          </DefaultButton>
+          </ButtonComponent>
         </nav>
       </div>
     </div>

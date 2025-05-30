@@ -19,22 +19,22 @@ export default defineNuxtConfig({
       meta: [
         {
           name: 'IT Sharks',
-          content: 'Описание сайта'
-        }
+          content: 'Описание сайта',
+        },
       ],
       link: [
-        { rel: 'icon', href: '/favicon.ico' }
-      ]
-    }
+        { rel: 'icon', href: '/favicon.ico' },
+      ],
+    },
   },
   vite: {
     css: {
       preprocessorOptions: {
         scss: {
-          additionalData: '@use "~/assets/styles/variables.scss" as *;'
-        }
-      }
-    }
+          additionalData: '@use "~/assets/styles/variables.scss" as *;',
+        },
+      },
+    },
   },
   css: ['~/assets/styles/main.scss'],
   modules: ['@nuxt/image'],

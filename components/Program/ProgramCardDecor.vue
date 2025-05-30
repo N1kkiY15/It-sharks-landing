@@ -22,7 +22,6 @@
 interface Props {
   index: number;
   starComponent: Component;
-  required: true;
 }
 
 const props = defineProps<Props>();

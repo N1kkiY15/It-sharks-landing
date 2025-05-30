@@ -7,3 +7,8 @@ export interface Card {
     header: string;
     authors: Author[];
 }
+
+export interface GradesCard {
+    grade: string;
+    description: string;
+}

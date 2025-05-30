@@ -1,23 +1,23 @@
 <template>
-  <div :id="`story-${props.card.id}`" class="stories-card">
+  <div :id="`story-${props.story.id}`" class="stories-card">
     <div class="stories-card__content" aria-label="Сравнение точек А и B">
       <div class="stories-card__content-description">
         <span class="stories-card__content-heading">Точка А:</span>
-        <p class="stories-card__content-text">{{ props.card.first }}</p>
+        <p class="stories-card__content-text">{{ props.story.first }}</p>
       </div>
 
       <div class="stories-card__content-description">
         <span class="stories-card__content-heading">Точка B:</span>
-        <p class="stories-card__content-text">{{ props.card.second }}</p>
+        <p class="stories-card__content-text">{{ props.story.second }}</p>
       </div>
     </div>
 
     <div class="stories-card__author">
       <span class="stories-card__author-name">
-        {{ props.card.name }}
+        {{ props.story.name }}
       </span>
       <span class="stories-card__author-age">
-        {{ props.card.age }}
+        {{ props.story.age }}
       </span>
     </div>
   </div>
@@ -25,7 +25,7 @@
 
 <script setup lang="ts">
 
-interface Card {
+interface StoriesCard {
   id: number;
   first: string;
   second: string;
@@ -34,7 +34,7 @@ interface Card {
 }
 
 const props = defineProps<{
-  card: Card;
+  story: StoriesCard;
 }>();
 
 </script>

@@ -3,9 +3,9 @@
     <StoriesTitle @previous-card="handlePreviousCard" @next-card="handleNextCard"/>
     <div class="story__cards">
       <StoriesCard
-          v-for="(card, index) in stories"
+          v-for="(story, index) in stories"
           :key="index"
-          :card="card"
+          :story="story"
       />
     </div>
   </section>

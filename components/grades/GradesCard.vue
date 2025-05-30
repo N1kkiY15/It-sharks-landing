@@ -1,9 +1,9 @@
 <template>
   <article class="grades-card">
     <div class="grades-card__description">
-      <span class="grades-card__description-header">{{ card.grade }}</span>
+      <span class="grades-card__description-header">{{ grade.grade }}</span>
       <p class="grades-card__description-text">
-        {{ card.description }}
+        {{ grade.description }}
       </p>
     </div>
 
@@ -20,10 +20,10 @@
 
 <script setup lang="ts">
 import TelegramIcon from "@assets/svg/TelegramIcon.vue";
-import type {gradesArray} from "@/types";
+import type {GradesCard} from "@/types";
 
 defineProps<{
-  card: gradesArray;
+  grade: GradesCard;
 }>();
 
 </script>

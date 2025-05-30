@@ -3,9 +3,9 @@
     <p class="grade__header">кому подойдет</p>
     <div class="grade__container">
       <GradesCard
-          v-for="(item, index) in grades"
+          v-for="(grade, index) in grades"
           :key="index"
-          :card="item"
+          :grade="grade"
       />
     </div>
   </section>
@@ -13,10 +13,10 @@
 </template>
 
 <script setup lang="ts">
-import GradesCard from "@components/grades/GradesCard.vue";
-import type {gradesArray} from "@/types";
 
-const grades: gradesArray[] = [
+import type {GradesCard} from "@/types";
+
+const grades: GradesCard[] = [
   {
     grade: `Новичок`,
     description: `Для тех, кто только отучился на курсах/в универе

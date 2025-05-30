@@ -8,7 +8,7 @@ export interface Card {
     authors: Author[];
 }
 
-export interface gradesArray {
+export interface GradesCard {
     grade: string;
     description: string;
 }

@@ -3,14 +3,16 @@
   <About class="about"/>
   <TeamSection />
   <ProgramSection />
+  <DescriptionSection  class="description"/>
 </template>
 
 <script setup lang="ts">
 
+import DescriptionSection from '@components/Descriprion/DescriptionSection.vue'
 </script>
 
 <style scoped lang="scss">
-.cover, .about {
+.cover, .about, .description {
   margin-bottom: 40px;
 
   @media (min-width: $breakpoint-sm) {

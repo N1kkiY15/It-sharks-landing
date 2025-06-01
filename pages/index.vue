@@ -3,18 +3,19 @@
   <About class="about"/>
   <TeamSection class="team"/>
   <ProgramSection class="program"/>
+  <StoriesSection class="stories"/>
   <GradesSection class="grades"/>
 </template>
 
 <script setup lang="ts">
-
 </script>
 
 <style scoped lang="scss">
 .about,
 .team,
 .program,
-.grades {
+.grades,
+.stories {
   margin-bottom: 40px;
 
   @media (min-width: $breakpoint-sm) {

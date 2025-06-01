@@ -11,7 +11,7 @@
 </template>
 
 <script setup lang="ts">
-import type {Card} from '@/types/team'
+import type {Card} from '@/types'
 
 defineProps<{
   card: Card;

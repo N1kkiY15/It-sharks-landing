@@ -1,9 +1,9 @@
 <template>
   <ButtonComponent variant="secondary" aria-label="Telegram">
-    <TelegramIcon aria-hidden="true"/>
+    <TelegramIcon aria-hidden="true" />
   </ButtonComponent>
 </template>
 
 <script setup lang="ts">
-import TelegramIcon from "@assets/svg/TelegramIcon.vue";
+  import TelegramIcon from '@assets/svg/socials/TelegramIcon.vue'
 </script>

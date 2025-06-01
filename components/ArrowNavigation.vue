@@ -1,78 +1,77 @@
 <template>
   <nav class="navigation" aria-label="Навигация по команде">
-    <DefaultButton
-        variant="primary"
-        class="navigation__button navigation__button--left"
-        aria-label="Предыдущая карточка"
-        @click="previousCard"
+    <ButtonComponent
+      variant="primary"
+      class="navigation__button navigation__button--left"
+      aria-label="Предыдущая карточка"
+      @click="previousCard"
     >
       <ArrowAccent class="navigation__arrow" aria-hidden="true" />
-    </DefaultButton>
+    </ButtonComponent>
 
-    <DefaultButton
-        variant="primary"
-        class="navigation__button"
-        @click="nextCard"
-        aria-label="Следующая карточка"
+    <ButtonComponent
+      variant="primary"
+      class="navigation__button"
+      @click="nextCard"
+      aria-label="Следующая карточка"
     >
-      <ArrowAccent class="navigation__arrow" aria-hidden="true"/>
-    </DefaultButton>
+      <ArrowAccent class="navigation__arrow" aria-hidden="true" />
+    </ButtonComponent>
   </nav>
 </template>
 
 <script setup lang="ts">
-import ArrowAccent from "@assets/svg/ArrowAccent.vue";
+  import ArrowAccent from '@assets/svg/arrows/ArrowAccent.vue'
 
-const emit = defineEmits<{
-  (e: 'previous-card'): void
-  (e: 'next-card'): void
-}>()
+  const emit = defineEmits<{
+    (e: 'previous-card'): void
+    (e: 'next-card'): void
+  }>()
 
-const previousCard = () => {
-  emit('previous-card')
-}
+  const previousCard = () => {
+    emit('previous-card')
+  }
 
-const nextCard = () => {
-  emit('next-card')
-}
+  const nextCard = () => {
+    emit('next-card')
+  }
 </script>
 
-
 <style scoped lang="scss">
-.navigation {
-  display: flex;
-  flex-direction: row;
-  gap: 5px;
-
-  @media (min-width: $breakpoint-md) {
-    gap: 15px;
-    display: none;
-  }
-
-  &__button {
+  .navigation {
     display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 10px;
-    height: 40px;
-    width: 40px;
+    flex-direction: row;
+    gap: 5px;
 
     @media (min-width: $breakpoint-md) {
-      height: 60px;
-      width: 60px;
-      padding: 17px;
+      gap: 15px;
+      display: none;
     }
 
-    &--left {
-      transform: rotate(180deg);
-    }
-  }
+    &__button {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 10px;
+      height: 40px;
+      width: 40px;
 
-  &__arrow {
-    @media (min-width: $breakpoint-md) {
-      height: 60px;
-      width: 35px;
+      @media (min-width: $breakpoint-md) {
+        height: 60px;
+        width: 60px;
+        padding: 17px;
+      }
+
+      &--left {
+        transform: rotate(180deg);
+      }
+    }
+
+    &__arrow {
+      @media (min-width: $breakpoint-md) {
+        height: 60px;
+        width: 35px;
+      }
     }
   }
-}
 </style>

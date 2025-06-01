@@ -1,14 +1,16 @@
 :root {
   // colors
-  --bg-color: #191D1A;
-  --accent-color: #95FF4C;
-  --decorative-color: #B99FFF;
-  --text-color: #F4F4F4;
-  --text-color-secondary: #F4F4F4B2;
+  --bg-color: #191d1a;
+  --accent-color: #95ff4c;
+  --decorative-color: #b99fff;
+  --text-color: #f4f4f4;
+  --text-color-secondary: #f4f4f4b2;
   --card-color: #073205;
+  --cover-title-color: #f4f4f466;
+  --card-bg-color: #f4f4f40d;
+  --el-bg-color: #f4f4f41a;
 }
 
-// breakpoints
 $breakpoint-xs: 360px;
 $breakpoint-sm: 480px;
 $breakpoint-md: 768px;

@@ -1,12 +1,11 @@
 <template>
   <div class="about-us">
     <p class="about-us__text">
-      У меня есть своя команда опытных менторов,
-      с которыми мы работаем вместе уже не первый год. Мы сопровождаем
-      наших учеников до выхода на работу и успешного прохождения
-      испытательного срока.
+      У меня есть своя команда опытных менторов, с которыми мы работаем вместе уже не первый год.
+      Мы сопровождаем наших учеников до выхода на работу и успешного прохождения испытательного
+      срока.
     </p>
-    <img class="about-us__image" src="/images/image.png" alt="" loading="lazy">
+    <NuxtImg class="about-us__image" src="/images/Timur.png" alt="" loading="lazy" />
 
     <ButtonComponent class="about-us__link" variant="primary">
       <p class="about-us__link-text">Наш телеграм-канал</p>
@@ -16,8 +15,7 @@
 </template>
 
 <script setup lang="ts">
-
-  import TelegramIcon from '@assets/svg/TelegramIcon.vue'
+  import TelegramIcon from '@assets/svg/socials/TelegramIcon.vue'
 </script>
 
 <style scoped lang="scss">
@@ -29,11 +27,13 @@
 
     @media (min-width: $breakpoint-sm) {
       grid-template-columns: 208px 172px;
+      justify-content: end;
       column-gap: 70px;
     }
 
     @media (min-width: $breakpoint-md) {
       grid-template-columns: 291px 239px;
+      justify-content: initial;
       margin-left: 125px;
       column-gap: 83px;
     }
@@ -81,7 +81,6 @@
         font-size: 20px;
         max-width: 100%;
       }
-
     }
 
     &__link {
@@ -112,7 +111,7 @@
       }
 
       &-text {
-        font-family: "Clash Display", arial, sans-serif;
+        font-family: 'Clash Display', arial, sans-serif;
         color: var(--bg-color);
         padding: 3px 0;
         font-weight: 400;
@@ -154,7 +153,6 @@
         width: 290px;
       }
     }
-
 
     &__icon {
       width: 17px;

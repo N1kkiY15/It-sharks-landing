@@ -19,6 +19,7 @@ export function useCardNavigation(totalCards: number, cardTypePrefix: string) {
             currentCardIndex.value--;
             scrollToCard();
         }
+        console.log("12:", 12)
     };
 
     const handleNextCard = (): void => {
@@ -26,6 +27,7 @@ export function useCardNavigation(totalCards: number, cardTypePrefix: string) {
             currentCardIndex.value++;
             scrollToCard();
         }
+        console.log("13:", 13)
     };
 
     return {

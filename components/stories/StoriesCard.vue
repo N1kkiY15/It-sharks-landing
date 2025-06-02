@@ -24,14 +24,8 @@
 </template>
 
 <script setup lang="ts">
+  import type { StoriesCard } from '@/types'
 
-interface StoriesCard {
-  id: number;
-  first: string;
-  second: string;
-  name: string;
-  age: string;
-}
 
 const props = defineProps<{
   story: StoriesCard;

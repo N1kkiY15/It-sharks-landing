@@ -1,22 +1,22 @@
 <template>
   <nav class="navigation" aria-label="Навигация по команде">
-    <DefaultButton
+    <ButtonComponent
         variant="primary"
         class="navigation__button navigation__button--left"
         aria-label="Предыдущая карточка"
         @click="previousCard"
     >
       <ArrowAccent class="navigation__arrow" aria-hidden="true" />
-    </DefaultButton>
+    </ButtonComponent>
 
-    <DefaultButton
+    <ButtonComponent
         variant="primary"
         class="navigation__button"
         @click="nextCard"
         aria-label="Следующая карточка"
     >
       <ArrowAccent class="navigation__arrow" aria-hidden="true"/>
-    </DefaultButton>
+    </ButtonComponent>
   </nav>
 </template>
 

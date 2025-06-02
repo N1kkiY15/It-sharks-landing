@@ -13,14 +13,8 @@
 
 <script setup lang="ts">
 import {useCardNavigation} from '@/composables/useScrollToCard';
+import type { StoriesCard } from '@/types'
 
-interface StoriesCard {
-  id: number;
-  first: string;
-  second: string;
-  name: string;
-  age: string;
-}
 const stories: StoriesCard[] = [
   {
     id: 0,

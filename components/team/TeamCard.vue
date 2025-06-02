@@ -11,10 +11,10 @@
 </template>
 
 <script setup lang="ts">
-import type {Card} from '@/types'
+import type {TeamCard} from '@/types'
 
 defineProps<{
-  card: Card;
+  card: TeamCard;
   cardIndex: number;
 }>();
 </script>

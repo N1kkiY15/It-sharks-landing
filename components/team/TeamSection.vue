@@ -15,8 +15,8 @@
 </template>
 
 <script setup lang="ts">
-import type {TeamCard} from '@/types/team';
-import {useCardNavigation} from "~/composables/useScrollToCard";
+import type {TeamCard} from '@/types';
+import {useCardNavigation} from "@/composables/useScrollToCard";
 
 const cards: TeamCard[] = [
   {
@@ -88,7 +88,6 @@ const cards: TeamCard[] = [
 
 ]
 const CARDS_IN_ARRAY = cards.length - 1;
-
 const {handlePreviousCard, handleNextCard} = useCardNavigation(CARDS_IN_ARRAY, "team");
 </script>
 

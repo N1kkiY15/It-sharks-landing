@@ -8,11 +8,8 @@
 </template>
 
 <script setup lang="ts">
-
-  import DoubleArrow from '@assets/svg/DoubleArrow.vue'
+  import DoubleArrow from '@assets/svg/arrows/DoubleArrow.vue'
 </script>
-
-
 
 <style scoped lang="scss">
   .read-more {

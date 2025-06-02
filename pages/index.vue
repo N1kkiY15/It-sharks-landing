@@ -1,15 +1,14 @@
 <template>
-  <Cover class="cover"/>
-  <About class="about"/>
+  <CoverSection class="cover"/>
+  <AboutSection class="about"/>
   <TeamSection class="team"/>
   <ProgramSection class="program"/>
   <StoriesSection class="stories"/>
   <GradesSection class="grades"/>
-  <DescriptionSection  class="description"/>
+  <DescriptionSection class="description"/>
 </template>
 
 <script setup lang="ts">
-
 import DescriptionSection from '@components/Descriprion/DescriptionSection.vue'
 </script>
 

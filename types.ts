@@ -1,14 +1,14 @@
 export interface Author {
-    name: string;
-    description: string;
+  name: string
+  description: string
 }
 
 export interface TeamCard {
-    header: string;
-    authors: Author[];
+  header: string
+  authors: Author[]
 }
 
 export interface GradesCard {
-    grade: string;
-    description: string;
+  grade: string
+  description: string
 }

@@ -6,6 +6,7 @@
   <StoriesSection class="stories"/>
   <GradesSection class="grades"/>
   <DescriptionSection class="description"/>
+  <FAQSection class="faq"/>
 </template>
 
 <script setup lang="ts">
@@ -18,7 +19,8 @@ import DescriptionSection from '@components/Descriprion/DescriptionSection.vue'
 .program,
 .grades,
 .stories,
-.description {
+.description,
+.faq {
   margin-bottom: 40px;
 
     @media (min-width: $breakpoint-sm) {

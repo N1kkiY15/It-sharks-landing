@@ -12,3 +12,9 @@ export interface GradesCard {
   grade: string
   description: string
 }
+
+export interface FaqCard {
+  id: number
+  question: string
+  answer: string
+}

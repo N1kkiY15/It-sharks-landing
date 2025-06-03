@@ -7,7 +7,7 @@
 
       <ArrowNavigation
         class="story-title__nav"
-        aria-label="Навигация по историям"
+        aria-label="Навигация по отзывам"
         @previous-card="handlePreviousCard"
         @next-card="handleNextCard"
       />

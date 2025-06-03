@@ -1,11 +1,15 @@
 <template>
   <div class="more-reviews">
-    <ButtonComponent variant="primary" class="more-reviews__button">
+    <ButtonComponent aria-label="Больше отзывов" variant="primary" class="more-reviews__button">
       <p class="more-reviews__text">Больше отзывов</p>
       <RightArrowS />
     </ButtonComponent>
 
-    <ButtonComponent variant="primary" class="more-reviews__button">
+    <ButtonComponent
+      aria-label="Ссылка на канал с отзывами"
+      variant="primary"
+      class="more-reviews__button"
+    >
       <p class="more-reviews__text more-reviews__text--link">@it_mentors</p>
     </ButtonComponent>
   </div>

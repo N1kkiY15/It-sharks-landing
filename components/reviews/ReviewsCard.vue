@@ -49,7 +49,7 @@
       }
 
       &-heading {
-        color: #f4f4f4b2;
+        color: var(--text-color-secondary);
         font-weight: 400;
         font-size: 12px;
         line-height: 140%;
@@ -127,7 +127,7 @@
       }
 
       &-nickname {
-        color: #f4f4f4b2;
+        color: var(--text-color-secondary);
         font-weight: 400;
         font-size: 12px;
         line-height: 140%;

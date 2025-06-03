@@ -1,0 +1,110 @@
+<template>
+  <section class="review">
+    <ReviewsTitle @previous-card="handlePreviousCard" @next-card="handleNextCard" />
+
+    <div class="review__cards">
+      <ReviewsCard v-for="(review, index) in reviews" :key="index" :review="review" />
+    </div>
+  </section>
+</template>
+
+<script setup lang="ts">
+  import { useCardNavigation } from '@/composables/useScrollToCard'
+  import ReviewsTitle from '@components/reviews/ReviewsTitle.vue'
+  import type { ReviewCard } from '@/types'
+
+  const reviews: ReviewCard[] = [
+    {
+      id: 1,
+      text: `<p>Когда я пришёл к Тимуру, у меня было 10 месяцев опыта в Python-разработке, но всё казалось сырым: резюме не работало, в продакшене чувствовал себя неуверенно, история о себе была слабо выстроена. Хотел найти удалённую работу за границей, чтобы быть свободным в выборе страны. Мы начали с фундамента: разобрали, где у меня пробелы, составили чёткий план, созванивались регулярно. Вместо общих советов — конкретные шаги. Полностью переработали резюме и легенду, натренировали ответы на собеседования и live-кодинг.</p>
+<p>И уже через неделю после начала откликов я получил приглашение в финтех-компанию. Тимур даже сам прошёл собес до меня, чтобы понять, на чём стоит сделать акцент. В итоге — оффер на 5000  $и полная удалёнка.
+Огромная благодарность за этот путь. Без его поддержки и системного подхода я бы вряд ли смог так.</p>`,
+      name: 'Иван',
+      nickname: '@barinov_iv',
+    },
+    {
+      id: 2,
+      text: `<p>Огромное спасибо Тимуру!
+С его помощью я прошёл путь от полного новичка до двух офферов — на 300 т. р. и 240 т.р. рублей.
+Тимур — очень сильный разработчик и ментор. Он умеет объяснять сложные вещи простым языком и сразу включает в практику: мы не зубрили теорию, а разбирали реальные кейсы на проекте.
+Он всегда был на связи — отвечал на любые вопросы, поддерживал в процессе обучения и после.</p>
+<p>Что мне особенно понравилось:
+— индивидуальный подход — подстраивался под мой ритм и цели
+— акцент на практику — всё обучение было максимально приближено к боевым условиям
+Без Тимура я бы точно не дошёл до таких результатов. Очень рад, что выбрал именно его.</p>`,
+      name: 'Иван',
+      nickname: '@barinov_iv',
+    },
+    {
+      id: 3,
+      text: `<p>Пришёл к Тимуру с целью прокачаться в Python-разработке. Опыт у меня был небольшой и сначала сомневался, смогу ли выйти на серьёзный уровень. Но Тимур сразу замотивировал: объяснил, что с правильным подходом всё реально.
+И результат не заставил себя ждать — уже через месяц его менторства я получил отличный оффер! Устроился на 350 к. на руки с 6 месяцами опыта.</p>
+<p>Он не просто ментор, а настоящий наставник: проводит разборы один на один, следит за прогрессом и всегда помогает в чатах комьюнити.\n  — Тимур организовал для меня мок-собеседования, которые сразу показали слабые места. Это помогло быстро подтянуть ключевые навыки.\n  — Даёт чёткие роадмапы и ресурсы под конкретные цели, даже если у тебя специфический интерес в Python-разработке.</p>`,
+      name: `Иван`,
+      nickname: '@barinov_iv',
+    },
+  ]
+  const CARDS_IN_ARRAY = reviews.length
+  const { handlePreviousCard, handleNextCard } = useCardNavigation(CARDS_IN_ARRAY, 'review')
+</script>
+
+<style scoped lang="scss">
+  .review {
+    font-family: 'Clash Display', arial, sans-serif;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    height: 100%;
+
+    @media (min-width: $breakpoint-sm) {
+      gap: 40px;
+    }
+
+    @media (min-width: $breakpoint-md) {
+      gap: 50px;
+    }
+
+    @media (min-width: $breakpoint-lg) {
+      gap: 100px;
+    }
+
+    &__cards {
+      display: flex;
+      flex-direction: row;
+      align-items: stretch;
+      gap: 10px;
+      width: calc(100% + 2 * 15px);
+      margin-left: calc(-1 * 15px);
+      padding: 0 15px;
+      overflow-x: scroll;
+      scroll-snap-type: x mandatory;
+      scrollbar-width: none;
+      min-height: 234px;
+
+      @media (min-width: $breakpoint-sm) {
+        gap: 15px;
+      }
+
+      @media (min-width: $breakpoint-md) {
+        gap: 30px;
+      }
+
+      @media (min-width: $breakpoint-lg) {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 25px;
+        padding: 0;
+        margin-left: 0;
+        width: initial;
+      }
+
+      @media (min-width: $breakpoint-xl) {
+        gap: 30px;
+      }
+
+      &::-webkit-scrollbar {
+        display: none;
+      }
+    }
+  }
+</style>

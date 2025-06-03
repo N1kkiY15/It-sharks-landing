@@ -1,15 +1,18 @@
 <template>
-  <CoverSection class="cover"/>
-  <AboutSection class="about"/>
+  <Cover class="cover"/>
+  <About class="about"/>
   <TeamSection class="team"/>
   <ProgramSection class="program"/>
   <StoriesSection class="stories"/>
   <GradesSection class="grades"/>
-  <DescriptionSection class="description"/>
+  <DescriptionSection  class="description"/>
+  <TarrifsSection class="tariffs" />
 </template>
 
 <script setup lang="ts">
+
 import DescriptionSection from '@components/Descriprion/DescriptionSection.vue'
+import TarrifsSection from '@components/tariffs/TarrifsSection.vue'
 </script>
 
 <style scoped lang="scss">
@@ -18,35 +21,37 @@ import DescriptionSection from '@components/Descriprion/DescriptionSection.vue'
 .program,
 .grades,
 .stories,
-.description {
+.description,
+.tariffs {
   margin-bottom: 40px;
 
-    @media (min-width: $breakpoint-sm) {
-      margin-bottom: 70px;
-    }
-
-    @media (min-width: $breakpoint-md) {
-      margin-bottom: 100px;
-    }
-
-    @media (min-width: $breakpoint-lg) {
-      margin-bottom: 150px;
-    }
+  @media (min-width: $breakpoint-sm) {
+    margin-bottom: 70px;
   }
 
-  .cover {
+  @media (min-width: $breakpoint-md) {
     margin-bottom: 100px;
-
-    @media (min-width: $breakpoint-sm) {
-      margin-bottom: 70px;
-    }
-
-    @media (min-width: $breakpoint-md) {
-      margin-bottom: 100px;
-    }
-
-    @media (min-width: $breakpoint-lg) {
-      margin-bottom: 150px;
-    }
   }
+
+  @media (min-width: $breakpoint-lg) {
+    margin-bottom: 150px;
+  }
+}
+
+.cover {
+  margin-bottom: 100px;
+
+  @media (min-width: $breakpoint-sm) {
+    margin-bottom: 70px;
+  }
+
+  @media (min-width: $breakpoint-md) {
+    margin-bottom: 100px;
+  }
+
+  @media (min-width: $breakpoint-lg) {
+    margin-bottom: 150px;
+  }
+}
+
 </style>

@@ -5,42 +5,45 @@
 </template>
 
 <script setup lang="ts">
-  type buttonVariant = 'primary' | 'secondary'
 
-  interface Props {
-    variant: buttonVariant
-  }
+type buttonVariant = "primary" | "secondary";
 
-  const props = defineProps<Props>()
+interface Props {
+  variant: buttonVariant;
+}
 
-  const buttonClasses = computed(() => ({
-    primary: props.variant === 'primary',
-    secondary: props.variant === 'secondary',
-  }))
+const props = defineProps<Props>();
+
+const buttonClasses = computed(() => ({
+  primary: props.variant === "primary",
+  secondary: props.variant === "secondary",
+}));
+
 </script>
 
 <style scoped lang="scss">
-  .primary {
-    padding: 7px 15px;
-    background-color: var(--el-bg-color);
-    border-radius: 500px;
+.primary {
+  padding: 7px 15px;
+  background-color: var(--button-bg-color, color-mix(in srgb, var(--text-color) 10%, transparent));
+  color: var(--button-text-color, var(--text-color));
+  border-radius: 500px;
 
-    @media (min-width: $breakpoint-md) {
-      padding: 15px 20px;
-    }
-
-    @media (min-width: $breakpoint-lg) {
-      padding: 20px 30px;
-    }
+  @media (min-width: $breakpoint-md) {
+    padding: 15px 20px;
   }
 
-  .secondary {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: var(--el-bg-color);
-    height: 70px;
-    width: 70px;
-    border-radius: 50%;
+  @media (min-width: $breakpoint-lg) {
+    padding: 20px 30px;
   }
+}
+
+.secondary {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: color-mix(in srgb, var(--text-color) 10%, transparent);
+  height: 70px;
+  width: 70px;
+  border-radius: 50%;
+}
 </style>

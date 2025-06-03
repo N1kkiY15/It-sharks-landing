@@ -1,6 +1,6 @@
 <template>
-  <Cover class="cover"/>
-  <About class="about"/>
+  <CoverSection class="cover"/>
+  <AboutSection class="about"/>
   <TeamSection class="team"/>
   <ProgramSection class="program"/>
   <StoriesSection class="stories"/>

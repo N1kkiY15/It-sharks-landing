@@ -15,7 +15,7 @@
   import type { TariffCard } from '@/types'
   import { useCardNavigation } from '@/composables/useScrollToCard'
   import TariffTitle from '@components/tariffs/TariffTitle.vue'
-  import TelegramIcon from '@assets/svg/TelegramIcon.vue'
+  import TelegramIcon from '@assets/svg/socials/TelegramIcon.vue'
 
   const tariffs: TariffCard[] = [
     {

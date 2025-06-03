@@ -2,11 +2,7 @@
   <section class="tariffs">
     <TariffTitle @previous-card="handlePreviousCard" @next-card="handleNextCard" />
     <div class="tariffs__cards">
-      <TariffsCard
-        v-for="(tariff, index) in tariffs"
-        :key="index"
-        :tariff="tariff"
-      />
+      <TariffsCard v-for="(tariff, index) in tariffs" :key="index" :tariff="tariff" />
     </div>
   </section>
 </template>
@@ -15,7 +11,7 @@
   import type { TariffCard } from '@/types'
   import { useCardNavigation } from '@/composables/useScrollToCard'
   import TariffTitle from '@components/tariffs/TariffTitle.vue'
-  import TelegramIcon from '@assets/svg/TelegramIcon.vue'
+  import TelegramIcon from '@assets/svg/socials/TelegramIcon.vue'
 
   const tariffs: TariffCard[] = [
     {
@@ -49,7 +45,6 @@
         textcolor: `var(--bg-color)`,
         link: `link`,
       },
-
     },
     {
       id: 2,

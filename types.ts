@@ -1,3 +1,5 @@
+import type { Component } from 'vue'
+
 export interface Author {
     name: string;
     description: string;
@@ -21,10 +23,18 @@ export interface GradesCard {
     description: string;
 }
 
+export interface TariffCardButton {
+    title: string,
+    color: string,
+    textcolor: string,
+    link: string,
+}
+
 export interface TariffCard {
     id: number;
     subtitle: string;
     title: string;
     description: string;
-    button: string;
+    button: TariffCardButton;
+    component?: Component
 }

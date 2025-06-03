@@ -45,10 +45,6 @@
       }
 
       @media (min-width: $breakpoint-md) {
-        font-size: 16px;
-      }
-
-      @media (min-width: $breakpoint-lg) {
         font-size: 20px;
       }
     }

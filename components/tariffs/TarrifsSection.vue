@@ -1,6 +1,5 @@
 <template>
   <section class="tariffs">
-
     <TariffTitle @previous-card="handlePreviousCard" @next-card="handleNextCard" />
     <div class="tariffs__cards">
       <TariffsCard
@@ -10,51 +9,96 @@
       />
     </div>
   </section>
-
 </template>
 
 <script setup lang="ts">
   import type { TariffCard } from '@/types'
   import { useCardNavigation } from '@/composables/useScrollToCard'
   import TariffTitle from '@components/tariffs/TariffTitle.vue'
+  import TelegramIcon from '@assets/svg/TelegramIcon.vue'
 
   const tariffs: TariffCard[] = [
     {
       id: 0,
       subtitle: `Первичная консультация`,
       title: `БЕСПЛАТНО`,
-      description: `Провожу первичную консультацию, где мы подробно разбираем твой текущий
-       уровень, определяем цели, составляем предварительный план развития.`,
-      button: `Записаться на консультацию`,
+      description: `
+      <p>Провожу первичную консультацию, где мы подробно разбираем твой текущий
+      уровень, определяем цели, составляем предварительный план развития.</p>
+    `,
+      button: {
+        title: `Записаться на консультацию`,
+        color: `#F4F4F41A`,
+        textcolor: `var(--accent-color)`,
+        link: `link`,
+      },
+      component: TelegramIcon,
     },
     {
       id: 1,
       subtitle: `Повторная консультация`,
       title: `4000 ₽`,
-      description: `Повторная консультация позволяет оценить твой прогресс, разобрать места,
-       где ты проседаешь, над чем стоит усиленно поработать и как быстрее выйти на нужный
-        результат.`,
-      button: `Купить консультацию`,
+      description: `
+      <p>Повторная консультация позволяет оценить твой прогресс, разобрать места,
+      где ты проседаешь, над чем стоит усиленно поработать и как быстрее выйти
+      на нужный результат.</p>
+    `,
+      button: {
+        title: `Купить консультацию`,
+        color: `var(--accent-color)`,
+        textcolor: `var(--bg-color)`,
+        link: `link`,
+      },
+
     },
     {
       id: 2,
       subtitle: `Тариф №1`,
       title: `10 000 ₽ + 50% от зп 4 месяца`,
-      description: `✔ Безлимит на звонки\n✔ Пет. проект\n✔ Учебные материалы и шпаргалки\n✔ Составление резюме и легенды\n✔ Мок-собесы\n✔ Отработка ошибок с реальных собеседований\n✔ Поддержка на испыталке`,
-      button: `Купить тариф №1`,
+      description: `
+      <ul>
+        <li>✔ Безлимит на звонки</li>
+        <li>✔ Пет. проект</li>
+        <li>✔ Учебные материалы и шпаргалки</li>
+        <li>✔ Составление резюме и легенды</li>
+        <li>✔ Мок-собесы</li>
+        <li>✔ Отработка ошибок с реальных собеседований</li>
+        <li>✔ Поддержка на испыталке</li>
+      </ul>
+    `,
+      button: {
+        title: `Купить тариф №1`,
+        color: `var(--accent-color)`,
+        textcolor: `var(--bg-color)`,
+        link: `link`,
+      },
     },
     {
       id: 3,
       subtitle: `Тариф №2`,
       title: `40 000 ₽ + 50% от зп 2 месяца`,
-      description: `✔ Безлимит на звонки\n✔ Пет. проект\n✔ Учебные материалы и шпаргалки\n✔ Составление резюме и легенды\n✔ Мок-собесы\n✔ Отработка ошибок с реальных собеседований\n✔ Поддержка на испыталке`,
-      button: `Купить тариф №2`,
+      description: `
+      <ul>
+        <li>✔ Безлимит на звонки</li>
+        <li>✔ Пет. проект</li>
+        <li>✔ Учебные материалы и шпаргалки</li>
+        <li>✔ Составление резюме и легенды</li>
+        <li>✔ Мок-собесы</li>
+        <li>✔ Отработка ошибок с реальных собеседований</li>
+        <li>✔ Поддержка на испыталке</li>
+      </ul>
+    `,
+      button: {
+        title: `Купить тариф №2`,
+        color: `var(--accent-color)`,
+        textcolor: `var(--bg-color)`,
+        link: `link`,
+      },
     },
   ]
 
   const CARDS_IN_ARRAY = tariffs.length - 1
   const { handlePreviousCard, handleNextCard } = useCardNavigation(CARDS_IN_ARRAY, 'tariff')
-
 </script>
 
 <style scoped lang="scss">
@@ -68,7 +112,7 @@
       gap: 40px;
     }
 
-    @media (min-width: $breakpoint-lg) {
+    @media (min-width: $breakpoint-md) {
       gap: 50px;
     }
 
@@ -119,10 +163,9 @@
       @media (min-width: $breakpoint-md) {
         display: grid;
         grid-template-columns: 1fr 1fr;
-      }
-
-      @media (min-width: $breakpoint-lg) {
-
+        width: initial;
+        margin-left: initial;
+        padding: 0;
       }
 
       @media (min-width: $breakpoint-xxl) {

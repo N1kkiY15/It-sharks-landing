@@ -1,5 +1,5 @@
 <template>
-  <div :id="`tariff-${tariff.id}`" class="tariffs-card">
+  <section :id="`tariff-${tariff.id}`" class="tariffs-card">
     <div class="tariffs-card__description">
 
       <div class="tariffs-card__title">
@@ -7,31 +7,35 @@
         <h3 class="tariffs-card__header">{{ tariff.title }}</h3>
       </div>
 
-      <p class="tariffs-card__text">
-        {{ tariff.description }}
-      </p>
-    </div>
+      <div
+        class="tariffs-card__text"
+        v-html="tariff.description"
+      />
 
+    </div>
     <ButtonComponent
       variant="primary"
       class="tariffs-card__button"
       aria-label="Написать мне в Telegram"
+      :style="buttonStyles"
     >
-      <p class="tariffs-card__button-text">{{ tariff.button }}</p>
-      <TelegramIcon class="tariffs-card__button-icon" aria-hidden="true" />
+      <p class="tariffs-card__button-text">{{ tariff.button.title }}</p>
+      <component class="tariffs-card__button-icon" :is="tariff.component" aria-hidden="true" />
     </ButtonComponent>
-  </div>
+  </section>
 </template>
 
 <script setup lang="ts">
   import type { TariffCard } from '@/types'
 
-  import TelegramIcon from '@assets/svg/TelegramIcon.vue'
-
-  defineProps<{
+  const props = defineProps<{
     tariff: TariffCard;
   }>()
 
+  const buttonStyles = computed(() => ({
+    backgroundColor: props.tariff.button.color,
+    color: props.tariff.button.textcolor
+  }))
 
 </script>
 
@@ -47,6 +51,14 @@
     min-height: 303px;
     min-width: 330px;
 
+    :deep(ul) {
+      line-height: 160%;
+
+      li::first-letter {
+        color: #4e4e4e;
+      }
+    }
+
     @media (min-width: $breakpoint-sm) {
       min-height: 383px;
       min-width: 297px;
@@ -54,11 +66,11 @@
 
     @media (min-width: $breakpoint-md) {
       padding: 30px;
-      gap: 30px;
+      gap: 40px;
     }
 
     @media (min-width: $breakpoint-lg) {
-      gap: 20px;
+      gap: 30px;
     }
 
     @media (min-width: $breakpoint-xl) {
@@ -73,10 +85,6 @@
       @media (min-width: $breakpoint-sm) {
         gap: 20px;
       }
-
-      @media (min-width: $breakpoint-md) {
-        gap: 30px;
-      }
     }
 
     &__title {
@@ -88,7 +96,6 @@
         gap: 5px;
       }
     }
-
 
     &__subheader {
       color: var(--decorative-color);
@@ -126,17 +133,15 @@
       }
 
       @media (min-width: $breakpoint-lg) {
-        font-size: 48px;
+        font-size: 44px;
       }
     }
 
     &__text {
-      white-space: pre-line;
       font-weight: 400;
       font-size: 12px;
       line-height: 140%;
       letter-spacing: -1%;
-
 
       @media (min-width: $breakpoint-sm) {
         font-size: 14px;
@@ -159,18 +164,19 @@
       align-items: center;
       gap: 10px;
       color: var(--text-color);
+      min-height: 35px;
 
       @media (min-width: $breakpoint-md) {
-        min-width: 184px;
-        margin-right: auto;
+        max-width: 386px;
+        min-height: 50px;
+        gap: 20px;
       }
 
       @media (min-width: $breakpoint-lg) {
-        width: 100%;
+        min-height: 60px;
       }
 
       &-text {
-        color: var(--accent-color);
         font-weight: 400;
         font-size: 12px;
         line-height: 100%;

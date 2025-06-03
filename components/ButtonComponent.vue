@@ -24,7 +24,8 @@ const buttonClasses = computed(() => ({
 <style scoped lang="scss">
 .primary {
   padding: 7px 15px;
-  background-color: color-mix(in srgb, var(--text-color) 10%, transparent);
+  background-color: var(--button-bg-color, color-mix(in srgb, var(--text-color) 10%, transparent));
+  color: var(--button-text-color, var(--text-color));
   border-radius: 500px;
 
   @media (min-width: $breakpoint-md) {

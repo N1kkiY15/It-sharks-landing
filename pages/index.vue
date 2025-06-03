@@ -6,8 +6,8 @@
   <StoriesSection class="stories" />
   <GradesSection class="grades" />
   <DescriptionSection class="description" />
-  <ReviewsSection class="reviews" />
   <TarrifsSection class="tariffs" />
+  <ReviewsSection class="reviews" />
 </template>
 
 <script setup lang="ts">

@@ -1,15 +1,32 @@
 <template>
   <section class="team">
 
-    <TeamTitle @previous-card="handlePreviousCard" @next-card="handleNextCard"/>
+<!--    <TeamTitle @previous-card="handlePreviousCard" @next-card="handleNextCard"/>-->
 
-    <div class="team__cards">
-      <TeamCard
-          v-for="(card, index) in cards"
-          :key="index"
-          :card="card"
-      />
-    </div>
+    <TeamTitle
+      @previous-card="() => carousel?.prev()"
+      @next-card="() => carousel?.next()"
+    />
+
+<!--    <div class="team__cards">-->
+<!--      <TeamCard-->
+<!--          v-for="(card, index) in cards"-->
+<!--          :key="index"-->
+<!--          :card="card"-->
+<!--      />-->
+<!--    </div>-->
+
+    <Carousel
+      class="team__carousel"
+      ref="carousel"
+      :items-to-show="1.2"
+      :wrap-around="true"
+      :snap-align="'center'"
+    >
+      <Slide v-for="(card, index) in cards" :key="index">
+        <TeamCard :card="card" class="team__carousel-item"/>
+      </Slide>
+    </Carousel>
   </section>
 </template>
 
@@ -17,6 +34,7 @@
 import type {TeamCard} from '@/types';
 import {useCardNavigation} from "@/composables/useScrollToCard";
 
+const carousel = ref();
 const cards: TeamCard[] = [
   {
     id: 0,
@@ -94,6 +112,7 @@ const cards: TeamCard[] = [
 ]
 const CARDS_IN_ARRAY = cards.length - 1;
 const {handlePreviousCard, handleNextCard} = useCardNavigation(CARDS_IN_ARRAY, "team");
+
 </script>
 
 <style scoped lang="scss">
@@ -112,6 +131,34 @@ const {handlePreviousCard, handleNextCard} = useCardNavigation(CARDS_IN_ARRAY, "
   }
   @media (min-width: $breakpoint-lg) {
     gap: 100px;
+  }
+
+  &__carousel {
+    overflow-x: hidden;
+    width: calc(100% + 2 * 15px);
+    margin-left: calc(-1 * 15px);
+    padding: 0 30px;
+
+    @media (min-width: $breakpoint-md) {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      grid-template-rows: repeat(3, 284px);
+      width: 100%;
+      padding: 0;
+      margin-left: 0;
+    }
+
+    :deep(.carousel__viewport) {
+      overflow: visible;
+    }
+
+    :deep(.carousel__track) {
+      padding: 10px 0;
+    }
+
+    &-item {
+      height: 100%;
+    }
   }
 
   &__cards {

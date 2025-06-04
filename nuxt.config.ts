@@ -37,5 +37,5 @@ export default defineNuxtConfig({
     }
   },
   css: ['~/assets/styles/main.scss'],
-  modules: ['@nuxt/image'],
+  modules: ['@nuxt/image', 'vue3-carousel-nuxt'],
 })

@@ -17,16 +17,16 @@ export function useCardNavigation(totalCards: number, cardTypePrefix: string) {
   const handlePreviousCard = (): void => {
     if (currentCardIndex.value !== 0) {
       currentCardIndex.value--
-      scrollToCard()
     }
   }
 
   const handleNextCard = (): void => {
     if (currentCardIndex.value !== totalCards) {
       currentCardIndex.value++
-      scrollToCard()
     }
   }
+
+  watch(() => currentCardIndex.value, scrollToCard)
 
   return {
     handlePreviousCard,

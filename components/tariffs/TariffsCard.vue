@@ -43,6 +43,7 @@
   .tariffs-card {
     display: flex;
     flex-direction: column;
+    scroll-snap-align: center;
     flex: 1;
     gap: 20px;
     padding: 20px;

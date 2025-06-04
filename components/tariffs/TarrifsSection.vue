@@ -145,7 +145,7 @@
     &__cards {
       display: flex;
       flex-direction: row;
-      align-items: stretch;
+      //align-items: stretch;
       gap: 10px;
       width: calc(100% + 2 * 15px);
       margin-left: calc(-1 * 15px);

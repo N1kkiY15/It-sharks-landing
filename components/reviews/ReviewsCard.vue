@@ -26,6 +26,7 @@
     color: var(--text-color);
     display: flex;
     flex-direction: column;
+    scroll-snap-align: center;
     flex: 1 0 auto;
     height: auto;
     gap: 15px;

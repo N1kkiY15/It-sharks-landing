@@ -8,7 +8,6 @@
           v-for="(card, index) in cards"
           :key="index"
           :card="card"
-          :card-index="index"
       />
     </div>
   </section>
@@ -20,6 +19,7 @@ import {useCardNavigation} from "@/composables/useScrollToCard";
 
 const cards: TeamCard[] = [
   {
+    id: 0,
     header: "Python разработка",
     authors: [
       {
@@ -33,6 +33,7 @@ const cards: TeamCard[] = [
     ]
   },
   {
+    id: 1,
     header: "Mobile dev",
     authors: [
       {
@@ -47,6 +48,7 @@ const cards: TeamCard[] = [
     ]
   },
   {
+    id: 2,
     header: "Frontend",
     authors: [
       {
@@ -57,6 +59,7 @@ const cards: TeamCard[] = [
     ]
   },
   {
+    id: 3,
     header: "Golang",
     authors: [
       {
@@ -67,6 +70,7 @@ const cards: TeamCard[] = [
     ]
   },
   {
+    id: 4,
     header: "Продакт менеджмент",
     authors: [
       {
@@ -76,6 +80,7 @@ const cards: TeamCard[] = [
     ]
   },
   {
+    id: 5,
     header: "ML",
     authors: [
       {

@@ -1,5 +1,5 @@
 <template>
-  <div :id="`team-${cardIndex}`" class="team-card">
+  <div :id="`team-${card.id}`" class="team-card">
     <h3 class="team-card__header">{{ card.header }}</h3>
     <div class="team-card__authors">
       <div v-for="(author, index) in card.authors" :key="index" class="team-card__author">
@@ -15,7 +15,6 @@ import type {TeamCard} from '@/types'
 
 defineProps<{
   card: TeamCard;
-  cardIndex: number;
 }>();
 </script>
 

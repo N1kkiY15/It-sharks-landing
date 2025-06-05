@@ -1,8 +1,12 @@
 <template>
   <div class="read-more">
-    <p class="read-more__text">читать дальше</p>
+    <p class="read-more__text">
+      <slot name="text">читать дальше</slot>
+    </p>
     <ButtonComponent variant="secondary" class="read-more__arrow">
-      <DoubleArrow class="read-more__arrow--double"/>
+      <slot name="icon">
+        <DoubleArrow class="read-more__arrow--double"/>
+      </slot>
     </ButtonComponent>
   </div>
 </template>

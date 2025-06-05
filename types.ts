@@ -50,3 +50,11 @@ export interface menuButton {
   text: string,
   sectionId: string,
 }
+
+export interface Breakpoints {
+  xxl: Ref<boolean>;
+  xl: Ref<boolean>;
+  lg: Ref<boolean>;
+  md: Ref<boolean>;
+  sm: Ref<boolean>;
+}

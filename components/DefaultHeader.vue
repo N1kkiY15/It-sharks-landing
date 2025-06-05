@@ -4,17 +4,17 @@
     <nav class="header__navigation" aria-label="Основная навигация">
       <div class="header__navigation-container">
         <a class="header__navigation-link" href="#" aria-label="Перейти к разделу программа"
-          >Программа</a
+        >Программа</a
         >
         <a class="header__navigation-link" href="#" aria-label="Перейти к разделу кейсы">Кейсы</a>
         <a class="header__navigation-link" href="#" aria-label="Перейти к разделу отзывы"
-          >Отзывы
+        >Отзывы
         </a>
       </div>
 
       <ButtonComponent variant="primary" class="header__navigation-button">
         <a class="header__navigation-order" href="#" aria-label="Перейти к выбору тарифа"
-          >Выбрать тариф</a
+        >Выбрать тариф</a
         >
       </ButtonComponent>
     </nav>
@@ -23,13 +23,55 @@
         <EmailButton class="header__mobile-icon" />
         <TelegramButton class="header__mobile-icon" />
       </div>
-      <MenuIcon />
+      <button @click="toggleDropdown">
+        <MenuIcon />
+      </button>
     </div>
+
+    <HeaderMobileMenu
+      v-if="isMobileScreen"
+      :openMenu="isOpen"
+      @toggle-dropdown="toggleDropdown"
+    />
   </div>
 </template>
 
 <script setup lang="ts">
   import MenuIcon from '@assets/svg/socials/MenuIcon.vue'
+
+  const isOpen = ref<boolean>(false)
+
+  const toggleDropdown = () => {
+    scrollToTop()
+    isOpen.value = !isOpen.value
+  }
+
+  const scrollToTop = () => {
+    const DEFAULT_BEHAVIOUR = 'smooth'
+    const TOP_VALUE = 0
+
+    window.scrollTo({
+      top: TOP_VALUE,
+      behavior: DEFAULT_BEHAVIOUR,
+    })
+  }
+
+  const isMobileScreen = ref<boolean>(false)
+
+  const BREAKPOINT_MD = 480;
+
+  const checkScreenSize = () => {
+    isMobileScreen.value = window.innerWidth <= 480
+  }
+
+  onMounted(() => {
+    checkScreenSize()
+    window.addEventListener('resize', checkScreenSize)
+  })
+
+  onBeforeUnmount(() => {
+    window.removeEventListener('resize', checkScreenSize)
+  })
 </script>
 
 <style scoped lang="scss">

@@ -45,3 +45,8 @@ export interface TariffCard {
   button: TariffCardButton
   component?: Component
 }
+
+export interface menuButton {
+  text: string,
+  sectionId: string,
+}

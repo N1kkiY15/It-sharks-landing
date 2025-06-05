@@ -45,3 +45,9 @@ export interface TariffCard {
   button: TariffCardButton
   component?: Component
 }
+
+export interface FaqCard {
+  id: number
+  question: string
+  answer: string
+}

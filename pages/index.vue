@@ -1,30 +1,31 @@
 <template>
-  <CoverSection class="cover" />
-  <AboutSection class="about" />
-  <TeamSection class="team" />
-  <ProgramSection class="program" />
-  <StoriesSection class="stories" />
-  <GradesSection class="grades" />
-  <DescriptionSection class="description" />
+  <CoverSection class="cover"/>
+  <AboutSection class="about"/>
+  <TeamSection class="team"/>
+  <ProgramSection class="program"/>
+  <StoriesSection class="stories"/>
+  <GradesSection class="grades"/>
+  <DescriptionSection class="description"/>
   <TarrifsSection class="tariffs" />
   <ReviewsSection class="reviews" />
+  <FAQSection class="faq"/>
 </template>
 
 <script setup lang="ts">
-  import DescriptionSection from '@components/Descriprion/DescriptionSection.vue'
-  import TarrifsSection from '@components/tariffs/TarrifsSection.vue'
+import DescriptionSection from '@components/Descriprion/DescriptionSection.vue'
 </script>
 
 <style scoped lang="scss">
-  .about,
-  .team,
-  .program,
-  .grades,
-  .stories,
-  .description,
-  .tariffs,
-  .reviews {
-    margin-bottom: 40px;
+.about,
+.team,
+.program,
+.grades,
+.stories,
+.description,
+.tariffs,
+.reviews,
+.faq {
+  margin-bottom: 40px;
 
     @media (min-width: $breakpoint-sm) {
       margin-bottom: 70px;

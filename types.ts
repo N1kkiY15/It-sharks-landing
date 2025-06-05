@@ -52,9 +52,31 @@ export interface menuButton {
 }
 
 export interface Breakpoints {
-  xxl: Ref<boolean>;
-  xl: Ref<boolean>;
-  lg: Ref<boolean>;
-  md: Ref<boolean>;
-  sm: Ref<boolean>;
+  xxl: Ref<boolean>
+  xl: Ref<boolean>
+  lg: Ref<boolean>
+  md: Ref<boolean>
+  sm: Ref<boolean>
 }
+//
+// export interface Breakpoints {
+//   xxl: Ref<boolean>
+//   xl: Ref<boolean>
+//   lg: Ref<boolean>
+//   md: Ref<boolean>
+//   sm: Ref<boolean>
+// }
+//
+// declare module 'nuxt/app' {
+//   interface NuxtApp {
+//     $breakpoints: Breakpoints
+//   }
+// }
+//
+// declare module '@vue/runtime-core' {
+//   interface ComponentCustomProperties {
+//     $breakpoints: Breakpoints
+//   }
+// }
+//
+// export {}

@@ -33,3 +33,55 @@ export default defineNuxtPlugin((nuxtApp) => {
 
     nuxtApp.provide('breakpoints', breakpoints)
   })
+
+// Файл НАМЕРЕННО с .client.ts — выполняется только на клиенте
+// export default defineNuxtPlugin((nuxtApp) => {
+//   const breakpoints = {
+//     xxl: ref(false),
+//     xl: ref(false),
+//     lg: ref(false),
+//     md: ref(false),
+//     sm: ref(false)
+//   }
+//
+//   const update = () => {
+//     breakpoints.xxl.value = window.innerWidth >= 1920
+//     breakpoints.xl.value = window.innerWidth >= 1440
+//     breakpoints.lg.value = window.innerWidth >= 1024
+//     breakpoints.md.value = window.innerWidth >= 768
+//     breakpoints.sm.value = window.innerWidth < 480
+//   }
+//
+//   // Вешаем обработчик только в браузере
+//   window.addEventListener('resize', update)
+//   update() // Инициализация
+//
+//   // Делаем доступным во всём приложении
+//   nuxtApp.provide('breakpoints', breakpoints)
+// })
+
+// export default defineNuxtPlugin((nuxtApp) => {
+//   const breakpoints = {
+//     xxl: ref(false),
+//     xl: ref(false),
+//     lg: ref(false),
+//     md: ref(false),
+//     sm: ref(false)
+//   }
+//
+//   const updateBreakpoints = () => {
+//     breakpoints.xxl.value = window.innerWidth >= 1920
+//     breakpoints.xl.value = window.innerWidth >= 1440
+//     breakpoints.lg.value = window.innerWidth >= 1024
+//     breakpoints.md.value = window.innerWidth >= 768
+//     breakpoints.sm.value = window.innerWidth < 480
+//   }
+//
+//   // Добавляем обработчик только на клиенте
+//   if (process.client) {
+//     window.addEventListener('resize', updateBreakpoints)
+//     updateBreakpoints() // Инициализация при загрузке
+//   }
+//
+//   nuxtApp.provide('breakpoints', breakpoints)
+// })

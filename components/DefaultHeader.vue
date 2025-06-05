@@ -29,7 +29,7 @@
     </div>
 
     <HeaderMobileMenu
-      v-if="breakpoints.sm"
+      v-if="isMobileScreen"
       :openMenu="isOpen"
       @toggle-dropdown="toggleDropdown"
     />
@@ -56,26 +56,21 @@
     })
   }
 
+  const isMobileScreen = ref<boolean>(false)
+  const BREAKPOINT_MD = 768
 
-  const { $breakpoints } = useNuxtApp()
-  const breakpoints = $breakpoints
+  const checkScreenSize = () => {
+    isMobileScreen.value = window.innerWidth <= BREAKPOINT_MD
+  }
 
-  // const isMobileScreen = ref<boolean>(false)
-  //
-  // const BREAKPOINT_MD = 480;
-  //
-  // const checkScreenSize = () => {
-  //   isMobileScreen.value = window.innerWidth <= 480
-  // }
-  //
-  // onMounted(() => {
-  //   checkScreenSize()
-  //   window.addEventListener('resize', checkScreenSize)
-  // })
-  //
-  // onBeforeUnmount(() => {
-  //   window.removeEventListener('resize', checkScreenSize)
-  // })
+  onMounted(() => {
+    checkScreenSize()
+    window.addEventListener('resize', checkScreenSize)
+  })
+
+  onBeforeUnmount(() => {
+    window.removeEventListener('resize', checkScreenSize)
+  })
 </script>
 
 <style scoped lang="scss">

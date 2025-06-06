@@ -1,18 +1,19 @@
 <template>
   <transition name="slide">
-    <div v-if="props.openMenu" class="header-menu">
+    <div v-if="openMenu" class="header-menu">
       <button class="header-menu__button" @click="$emit('toggle-dropdown')">
         <MenuIcon />
       </button>
       <div class="header-menu__container">
-        <button
+        <ButtonComponent
           v-for="(button, index) in menuButtons"
           :key="index"
+          variant="primary"
           class="header-menu__container-button"
           @click="scrollToSection(button.sectionId)"
         >
           {{ button.text }}
-        </button>
+        </ButtonComponent>
       </div>
       <StarMenu class="header-menu__decoration" />
     </div>
@@ -61,14 +62,14 @@
     display: flex;
     flex-direction: column;
     padding: 20px 16px 20px 10px;
-    width: 176px;
+    width: 70%;
     height: 100vh;
     background-color: var(--header-menu-color);
     z-index: 3;
     overflow-y: auto;
 
     @media (min-width: $breakpoint-sm) {
-      width: 235px;
+      width: 50%;
       padding-left: 20px;
     }
 

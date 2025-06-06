@@ -25,6 +25,7 @@ defineProps<{
   scroll-snap-align: center;
   flex: auto 0 0;
   max-width: 245px;
+  height: 100%;
   border: 3px solid var(--card-color);
   color: var(--text-color);
   border-radius: 20px;
@@ -66,7 +67,8 @@ defineProps<{
   &__authors {
     display: flex;
     flex-direction: column;
-    gap: 30px;
+    justify-content: space-between;
+    height: 100%;
 
     @media (min-width: $breakpoint-sm) {
       gap: 20px;

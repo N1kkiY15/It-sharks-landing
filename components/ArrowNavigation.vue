@@ -45,7 +45,6 @@
 
     @media (min-width: $breakpoint-md) {
       gap: 15px;
-      display: none;
     }
 
     &__button {

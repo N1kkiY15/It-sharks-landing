@@ -6,6 +6,7 @@ export interface Author {
 }
 
 export interface TeamCard {
+  id: number
   header: string
   authors: Author[]
 }

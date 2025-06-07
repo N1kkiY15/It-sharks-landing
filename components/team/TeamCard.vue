@@ -1,5 +1,5 @@
 <template>
-  <div :id="`team-${cardIndex}`" class="team-card">
+  <div :id="`team-${card.id}`" class="team-card">
     <h3 class="team-card__header">{{ card.header }}</h3>
     <div class="team-card__authors">
       <div v-for="(author, index) in card.authors" :key="index" class="team-card__author">
@@ -15,7 +15,6 @@ import type {TeamCard} from '@/types'
 
 defineProps<{
   card: TeamCard;
-  cardIndex: number;
 }>();
 </script>
 
@@ -26,6 +25,7 @@ defineProps<{
   scroll-snap-align: center;
   flex: auto 0 0;
   max-width: 245px;
+  height: 100%;
   border: 3px solid var(--card-color);
   color: var(--text-color);
   border-radius: 20px;
@@ -67,7 +67,8 @@ defineProps<{
   &__authors {
     display: flex;
     flex-direction: column;
-    gap: 30px;
+    justify-content: space-between;
+    height: 100%;
 
     @media (min-width: $breakpoint-sm) {
       gap: 20px;

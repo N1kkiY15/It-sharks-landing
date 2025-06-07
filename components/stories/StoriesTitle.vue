@@ -5,7 +5,7 @@
     </h2>
 
     <ArrowNavigation
-      class="story-title__nav"
+      v-if="EnoughWidthToShow"
       aria-label="Навигация по историям"
       @previous-card="handlePreviousCard"
       @next-card="handleNextCard"
@@ -14,6 +14,8 @@
 </template>
 
 <script setup lang="ts">
+  import { useDisplay } from '~/composables/useDisplay'
+
   const emit = defineEmits<{
     (e: 'previous-card'): void
     (e: 'next-card'): void
@@ -26,6 +28,9 @@
   const handleNextCard = () => {
     emit('next-card')
   }
+
+  const BREAKPOINT_LG = 960
+  const { EnoughWidthToShow } = useDisplay(BREAKPOINT_LG)
 </script>
 
 <style scoped lang="scss">
@@ -52,16 +57,6 @@
       @media (min-width: $breakpoint-lg) {
         font-size: 48px;
         max-width: 555px;
-      }
-    }
-
-    &__nav {
-      @media (min-width: $breakpoint-md) {
-        display: flex;
-      }
-
-      @media (min-width: $breakpoint-lg) {
-        display: none;
       }
     }
   }

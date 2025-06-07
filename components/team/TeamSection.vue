@@ -7,7 +7,7 @@
     />
 
     <Carousel
-      v-if="isMobileScreen"
+      v-if="EnoughWidthToShow"
       class="team__carousel"
       ref="carousel"
       items-to-show="auto"
@@ -32,7 +32,7 @@
 
 <script setup lang="ts">
   import type { TeamCard } from '@/types'
-  import { useCardNavigation } from '@/composables/useScrollToCard'
+  import { useDisplay } from '@/composables/useDisplay'
 
   const carousel = ref()
   const cards: TeamCard[] = [
@@ -110,27 +110,9 @@
     },
 
   ]
-  const isMobileScreen = ref<boolean>(false)
+
   const BREAKPOINT_MD = 768
-
-  const checkScreenSize = () => {
-    isMobileScreen.value = window.innerWidth < BREAKPOINT_MD
-  }
-
-  onMounted(() => {
-    checkScreenSize()
-    window.addEventListener('resize', checkScreenSize)
-  })
-
-  onBeforeUnmount(() => {
-    window.removeEventListener('resize', checkScreenSize)
-
-    if (process.client) {
-      document.body.style.overflow = ''
-      document.body.style.touchAction = ''
-    }
-  })
-
+  const { EnoughWidthToShow } = useDisplay(BREAKPOINT_MD)
 </script>
 
 <style scoped lang="scss">
@@ -178,24 +160,11 @@
     }
 
     &__cards {
-      display: flex;
-      flex-direction: row;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      grid-template-rows: repeat(3, 284px);
       gap: 10px;
-      width: calc(100% + 2 * 15px);
-      margin-left: calc(-1 * 15px);
-      padding: 0 15px;
-      overflow-x: scroll;
-      scroll-snap-type: x mandatory;
-      scrollbar-width: none;
-
-      @media (min-width: $breakpoint-md) {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        grid-template-rows: repeat(3, 284px);
-        width: 100%;
-        padding: 0;
-        margin-left: 0;
-      }
+      width: 100%;
 
       @media (min-width: $breakpoint-lg) {
         grid-template-columns: repeat(3, 1fr);
@@ -204,10 +173,6 @@
 
       @media (min-width: $breakpoint-xl) {
         gap: 30px;
-      }
-
-      &::-webkit-scrollbar {
-        display: none;
       }
     }
   }

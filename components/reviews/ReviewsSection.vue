@@ -1,17 +1,35 @@
 <template>
   <section class="review">
-    <ReviewsTitle @previous-card="handlePreviousCard" @next-card="handleNextCard" />
 
-    <div class="review__cards">
+    <ReviewsTitle
+      @previous-card="() => carousel?.prev()"
+      @next-card="() => carousel?.next()"
+    />
+
+    <Carousel
+      v-if="EnoughWidthToShow"
+      class="review__carousel"
+      ref="carousel"
+      items-to-show="auto"
+      :wrap-around="true"
+      :snap-align="'center'"
+      :gap="10"
+    >
+      <Slide v-for="(review, index) in reviews" :key="index">
+        <ReviewsCard :review="review" :key="index" class="tariffs__carousel-item" />
+      </Slide>
+    </Carousel>
+
+    <div v-else class="review__cards">
       <ReviewsCard v-for="(review, index) in reviews" :key="index" :review="review" />
     </div>
   </section>
 </template>
 
 <script setup lang="ts">
-  import { useCardNavigation } from '@/composables/useScrollToCard'
   import ReviewsTitle from '@components/reviews/ReviewsTitle.vue'
   import type { ReviewCard } from '@/types'
+  import { useDisplay } from '~/composables/useDisplay'
 
   const reviews: ReviewCard[] = [
     {
@@ -44,8 +62,10 @@
       nickname: '@barinov_iv',
     },
   ]
-  const CARDS_IN_ARRAY = reviews.length
-  const { handlePreviousCard, handleNextCard } = useCardNavigation(CARDS_IN_ARRAY, 'review')
+  const carousel = ref()
+
+  const BREAKPOINT_XL = 1280
+  const { EnoughWidthToShow } = useDisplay(BREAKPOINT_XL)
 </script>
 
 <style scoped lang="scss">
@@ -68,43 +88,29 @@
       gap: 100px;
     }
 
-    &__cards {
-      display: flex;
-      flex-direction: row;
-      align-items: stretch;
-      gap: 10px;
+    &__carousel {
+      overflow-x: hidden;
       width: calc(100% + 2 * 15px);
       margin-left: calc(-1 * 15px);
-      padding: 0 15px;
-      overflow-x: scroll;
-      scroll-snap-type: x mandatory;
-      scrollbar-width: none;
-      min-height: 234px;
+      padding: 0 30px;
+
 
       @media (min-width: $breakpoint-sm) {
-        gap: 15px;
-      }
-
-      @media (min-width: $breakpoint-md) {
-        gap: 30px;
-      }
-
-      @media (min-width: $breakpoint-lg) {
-        display: grid;
-        grid-template-columns: repeat(3, 1fr);
-        gap: 25px;
+        width: calc(100% + 2 * 15px);
+        margin-left: calc(-1 * 15px);
         padding: 0;
-        margin-left: 0;
-        width: initial;
       }
 
-      @media (min-width: $breakpoint-xl) {
-        gap: 30px;
+      :deep(.carousel__viewport) {
+        overflow: visible;
       }
+    }
 
-      &::-webkit-scrollbar {
-        display: none;
-      }
+    &__cards {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      min-height: 234px;
+      gap: 30px;
     }
   }
 </style>

@@ -33,6 +33,20 @@
     max-width: 330px;
     padding-right: 4px;
 
+    @media (min-width: $breakpoint-sm) {
+      max-width: 370px;
+    }
+
+    @media (min-width: $breakpoint-md) {
+      max-width: 490px;
+      font-size: 16px;
+    }
+
+    @media (min-width: $breakpoint-lg) {
+      max-width: 620px;
+      font-size: 20px;
+    }
+
     &__content {
       flex: 1;
       display: flex;
@@ -89,19 +103,6 @@
           font-size: 20px;
         }
       }
-    }
-
-    @media (min-width: $breakpoint-sm) {
-      max-width: 290px;
-    }
-
-    @media (min-width: $breakpoint-md) {
-      max-width: 350px;
-      gap: 30px;
-    }
-
-    @media (min-width: $breakpoint-lg) {
-      max-width: initial;
     }
 
     &__author {

@@ -3,18 +3,18 @@
     <h1 class="header__heading">IT Sharks</h1>
     <nav class="header__navigation" aria-label="Основная навигация">
       <div class="header__navigation-container">
-        <a class="header__navigation-link" href="#" aria-label="Перейти к разделу программа"
-          >Программа</a
-        >
+        <a class="header__navigation-link" href="#" aria-label="Перейти к разделу программа">
+          Программа
+        </a>
         <a class="header__navigation-link" href="#" aria-label="Перейти к разделу кейсы">Кейсы</a>
         <a class="header__navigation-link" href="#" aria-label="Перейти к разделу отзывы"
-          >Отзывы
+        >Отзывы
         </a>
       </div>
 
       <ButtonComponent variant="primary" class="header__navigation-button">
         <a class="header__navigation-order" href="#" aria-label="Перейти к выбору тарифа"
-          >Выбрать тариф</a
+        >Выбрать тариф</a
         >
       </ButtonComponent>
     </nav>
@@ -23,29 +23,93 @@
         <EmailButton class="header__mobile-icon" />
         <TelegramButton class="header__mobile-icon" />
       </div>
-      <MenuIcon />
+      <button @click="toggleDropdown">
+        <MenuIcon />
+      </button>
     </div>
+
+    <div
+      class="page-blur"
+      :class="{ 'page-blur--active': isOpen }"
+      @click="toggleDropdown"
+    />
+
+    <HeaderMobileMenu
+      v-if="isMobileScreen"
+      :openMenu="isOpen"
+      @toggle-dropdown="toggleDropdown"
+    />
   </div>
 </template>
 
 <script setup lang="ts">
   import MenuIcon from '@assets/svg/socials/MenuIcon.vue'
+
+  const isOpen = ref(false)
+
+  const toggleDropdown = () => {
+    isOpen.value = !isOpen.value
+    toggleBodyScroll()
+  }
+
+  const toggleBodyScroll = () => {
+    if (process.client) {
+      if (isOpen.value) {
+        document.body.style.overflow = 'hidden'
+        document.body.style.touchAction = 'none'
+      } else {
+        document.body.style.overflow = ''
+        document.body.style.touchAction = ''
+      }
+    }
+  }
+
+  const isMobileScreen = ref<boolean>(false)
+  const BREAKPOINT_MD = 768
+
+  const checkScreenSize = () => {
+    isMobileScreen.value = window.innerWidth <= BREAKPOINT_MD
+  }
+
+  onMounted(() => {
+    checkScreenSize()
+    window.addEventListener('resize', checkScreenSize)
+  })
+
+  onBeforeUnmount(() => {
+    window.removeEventListener('resize', checkScreenSize)
+
+    if (process.client) {
+      document.body.style.overflow = ''
+      document.body.style.touchAction = ''
+    }
+  })
+
 </script>
 
 <style scoped lang="scss">
   .header {
-    position: relative;
+    position: fixed;
+    top: 0;
+    left: 0;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
+    width: 100%;
+    z-index: 100;
+    padding: 20px 15px 10px;
     margin-bottom: 40px;
+    background-color: var(--bg-color);
 
     @media (min-width: $breakpoint-sm) {
+      padding: 20px 15px;
       margin-bottom: 42px;
     }
 
     @media (min-width: $breakpoint-md) {
+      position: relative;
+      padding: 0;
       margin-bottom: 90px;
     }
 
@@ -56,19 +120,18 @@
     &::after {
       content: '';
       position: absolute;
-      left: 50%;
-      bottom: -10px;
-      transform: translateX(-50%);
-      width: 100vw;
       height: 2px;
       background-color: var(--text-color);
-      z-index: 1;
-
-      @media (min-width: $breakpoint-sm) {
-        bottom: -20px;
-      }
+      z-index: 2;
+      left: 0;
+      bottom: 0;
+      width: 100%;
+      transform: none;
 
       @media (min-width: $breakpoint-md) {
+        left: 50%;
+        transform: translateX(-50%);
+        width: 100vw;
         bottom: -34px;
         height: 5px;
       }
@@ -195,6 +258,25 @@
       @media (min-width: $breakpoint-md) {
         display: none;
       }
+    }
+  }
+
+  .page-blur {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    backdrop-filter: blur(5px);
+    background-color: rgba(0, 0, 0, 0.2);
+    z-index: 3;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+
+    &--active {
+      opacity: 1;
+      pointer-events: auto;
     }
   }
 </style>

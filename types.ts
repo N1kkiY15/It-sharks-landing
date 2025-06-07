@@ -51,3 +51,8 @@ export interface FaqCard {
   question: string
   answer: string
 }
+
+export interface menuButton {
+  text: string,
+  sectionId: string,
+}

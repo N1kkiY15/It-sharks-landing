@@ -13,11 +13,11 @@
 <style scoped lang="scss">
   .default {
     background-color: var(--bg-color);
-    padding: 20px 15px 40px;
+    padding: 75px 15px 40px;
     font-family: 'Clash Display', arial, sans-serif;
 
     @media (min-width: $breakpoint-sm) {
-      padding: 20px 15px 70px;
+      padding: 84px 15px 70px;
     }
 
     @media (min-width: $breakpoint-md) {

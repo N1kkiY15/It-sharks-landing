@@ -7,7 +7,7 @@
     />
 
     <Carousel
-      v-if="EnoughWidthToShow"
+      v-if="breakpointXl"
       class="review__carousel"
       ref="carousel"
       items-to-show="auto"
@@ -65,7 +65,7 @@
   const carousel = ref()
 
   const BREAKPOINT_XL = 1280
-  const { EnoughWidthToShow } = useDisplay(BREAKPOINT_XL)
+  const { enoughWidthToShow: breakpointXl } = useDisplay(BREAKPOINT_XL)
 </script>
 
 <style scoped lang="scss">
@@ -94,10 +94,7 @@
       margin-left: calc(-1 * 15px);
       padding: 0 30px;
 
-
       @media (min-width: $breakpoint-sm) {
-        width: calc(100% + 2 * 15px);
-        margin-left: calc(-1 * 15px);
         padding: 0;
       }
 

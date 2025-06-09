@@ -6,7 +6,7 @@
       <MoreReviewsBlock class="reviews__more-reviews reviews__more-reviews--desktop" />
 
       <ArrowNavigation
-        v-if="EnoughWidthToShow"
+        v-if="breakpointXl"
         aria-label="Навигация по отзывам"
         @previous-card="handlePreviousCard"
         @next-card="handleNextCard"
@@ -35,7 +35,7 @@
   }
 
   const BREAKPOINT_XL = 1280
-  const { EnoughWidthToShow } = useDisplay(BREAKPOINT_XL)
+  const { enoughWidthToShow: breakpointXl } = useDisplay(BREAKPOINT_XL)
 </script>
 
 <style scoped lang="scss">

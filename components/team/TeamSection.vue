@@ -7,7 +7,7 @@
     />
 
     <Carousel
-      v-if="EnoughWidthToShow"
+      v-if="breakpointMd"
       class="team__carousel"
       ref="carousel"
       items-to-show="auto"
@@ -112,7 +112,7 @@
   ]
 
   const BREAKPOINT_MD = 768
-  const { EnoughWidthToShow } = useDisplay(BREAKPOINT_MD)
+  const { enoughWidthToShow: breakpointMd } = useDisplay(BREAKPOINT_MD)
 </script>
 
 <style scoped lang="scss">

@@ -3,7 +3,7 @@
     <p class="tariffs-title__header">тарифы</p>
 
     <ArrowNavigation
-      v-if="EnoughWidthToShow"
+      v-if="breakpointMd"
       aria-label="Навигация по тарифам"
       @previous-card="handlePreviousCard"
       @next-card="handleNextCard"
@@ -28,7 +28,7 @@
   }
 
   const BREAKPOINT_MD = 768
-  const { EnoughWidthToShow } = useDisplay(BREAKPOINT_MD)
+  const { enoughWidthToShow: breakpointMd } = useDisplay(BREAKPOINT_MD)
 </script>
 
 

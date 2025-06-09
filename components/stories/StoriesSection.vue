@@ -7,7 +7,7 @@
     />
 
     <Carousel
-      v-if="EnoughWidthToShow"
+      v-if="breakpointLg"
       class="story__carousel"
       ref="carousel"
       items-to-show="auto"
@@ -60,7 +60,7 @@ const stories: StoriesCard[] = [
 const carousel = ref()
 
 const BREAKPOINT_LG = 960
-const { EnoughWidthToShow } = useDisplay(BREAKPOINT_LG)
+const { enoughWidthToShow: breakpointLg } = useDisplay(BREAKPOINT_LG)
 </script>
 
 <style scoped lang="scss">

@@ -5,7 +5,7 @@
     </h2>
 
     <ArrowNavigation
-      v-if="EnoughWidthToShow"
+      v-if="breakpointLg"
       aria-label="Навигация по историям"
       @previous-card="handlePreviousCard"
       @next-card="handleNextCard"
@@ -30,7 +30,7 @@
   }
 
   const BREAKPOINT_LG = 960
-  const { EnoughWidthToShow } = useDisplay(BREAKPOINT_LG)
+  const { enoughWidthToShow: breakpointLg } = useDisplay(BREAKPOINT_LG)
 </script>
 
 <style scoped lang="scss">

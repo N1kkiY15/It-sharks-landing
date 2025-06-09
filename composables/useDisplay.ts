@@ -1,9 +1,9 @@
 export function useDisplay(breakpoint: number) {
 
-  const EnoughWidthToShow = ref<boolean>(false)
+  const enoughWidthToShow = ref<boolean>(false)
 
   const checkScreenSize = () => {
-    EnoughWidthToShow.value = window.innerWidth < breakpoint
+    enoughWidthToShow.value = window.innerWidth < breakpoint
   }
 
   onMounted(() => {
@@ -16,6 +16,6 @@ export function useDisplay(breakpoint: number) {
   })
 
   return {
-    EnoughWidthToShow
+    enoughWidthToShow
   }
 }

@@ -1,7 +1,26 @@
 <template>
   <section class="tariffs">
-    <TariffTitle @previous-card="handlePreviousCard" @next-card="handleNextCard" />
-    <div class="tariffs__cards">
+
+    <TariffTitle
+      @previous-card="() => carousel?.prev()"
+      @next-card="() => carousel?.next()"
+    />
+
+    <Carousel
+      v-if="breakpointMd"
+      class="tariffs__carousel"
+      ref="carousel"
+      items-to-show="auto"
+      :wrap-around="true"
+      :snap-align="'center'"
+      :gap="10"
+    >
+      <Slide v-for="(tariff, index) in tariffs" :key="index">
+        <TariffsCard :tariff="tariff" :key="index" class="tariffs__carousel-item" />
+      </Slide>
+    </Carousel>
+
+    <div v-else class="tariffs__cards">
       <TariffsCard v-for="(tariff, index) in tariffs" :key="index" :tariff="tariff" />
     </div>
   </section>
@@ -9,7 +28,7 @@
 
 <script setup lang="ts">
   import type { TariffCard } from '@/types'
-  import { useCardNavigation } from '@/composables/useScrollToCard'
+  import { useDisplay } from '@/composables/useDisplay'
   import TariffTitle from '@components/tariffs/TariffTitle.vue'
   import TelegramIcon from '@assets/svg/socials/TelegramIcon.vue'
 
@@ -91,9 +110,10 @@
       },
     },
   ]
+  const carousel = ref()
 
-  const CARDS_IN_ARRAY = tariffs.length - 1
-  const { handlePreviousCard, handleNextCard } = useCardNavigation(CARDS_IN_ARRAY, 'tariff')
+  const BREAKPOINT_MD = 768
+  const { enoughWidthToShow: breakpointMd } = useDisplay(BREAKPOINT_MD)
 </script>
 
 <style scoped lang="scss">
@@ -109,6 +129,37 @@
 
     @media (min-width: $breakpoint-md) {
       gap: 50px;
+    }
+
+    &__carousel {
+      overflow-x: hidden;
+      width: calc(100% + 2 * 15px);
+      margin-left: calc(-1 * 15px);
+      padding: 0 30px;
+
+      @media (min-width: $breakpoint-sm) {
+        width: calc(100% + 2 * 15px);
+        margin-left: calc(-1 * 15px);
+        padding: 0;
+      }
+
+      :deep(.carousel__viewport) {
+        overflow: visible;
+      }
+
+      &-item {
+        min-height: 303px;
+        max-width: 330px;
+
+        @media (min-width: $breakpoint-sm) {
+          height: 100%;
+          max-width: 380px;
+        }
+
+        @media (min-width: $breakpoint-md) {
+          min-height: 306px;
+        }
+      }
     }
 
     &__card {
@@ -143,32 +194,13 @@
     }
 
     &__cards {
-      display: flex;
-      flex-direction: row;
-      align-items: stretch;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
       gap: 10px;
-      width: calc(100% + 2 * 15px);
-      margin-left: calc(-1 * 15px);
-      padding: 0 15px;
-      overflow-x: scroll;
-      scroll-snap-type: x mandatory;
-      scrollbar-width: none;
       min-height: 234px;
-
-      @media (min-width: $breakpoint-md) {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        width: initial;
-        margin-left: initial;
-        padding: 0;
-      }
 
       @media (min-width: $breakpoint-xxl) {
         gap: 30px;
-      }
-
-      &::-webkit-scrollbar {
-        display: none;
       }
     }
   }

@@ -9,7 +9,11 @@
           поддержкой.
         </p>
 
-        <ArrowNavigation @previous-card="handlePreviousCard" @next-card="handleNextCard" />
+        <ArrowNavigation
+          v-if="breakpointMd"
+          aria-label="Навигация по команде"
+          @previous-card="handlePreviousCard"
+          @next-card="handleNextCard" />
       </div>
     </div>
     <StarType0 class="team-title__star" aria-hidden="true" />
@@ -18,6 +22,7 @@
 
 <script setup lang="ts">
   import StarType0 from '@assets/svg/stars/StarType0.vue'
+  import { useDisplay } from '~/composables/useDisplay'
 
   const emit = defineEmits<{
     (e: 'previous-card'): void
@@ -31,6 +36,9 @@
   const handleNextCard = () => {
     emit('next-card')
   }
+
+  const BREAKPOINT_MD = 768
+  const { enoughWidthToShow: breakpointMd } = useDisplay(BREAKPOINT_MD)
 </script>
 
 <style scoped lang="scss">

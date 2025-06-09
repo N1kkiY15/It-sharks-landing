@@ -3,7 +3,7 @@
     <p class="tariffs-title__header">тарифы</p>
 
     <ArrowNavigation
-      class="tariffs-title__nav"
+      v-if="breakpointMd"
       aria-label="Навигация по тарифам"
       @previous-card="handlePreviousCard"
       @next-card="handleNextCard"
@@ -12,6 +12,8 @@
 </template>
 
 <script setup lang="ts">
+  import { useDisplay } from '~/composables/useDisplay'
+
   const emit = defineEmits<{
     (e: 'previous-card'): void
     (e: 'next-card'): void
@@ -24,6 +26,9 @@
   const handleNextCard = () => {
     emit('next-card')
   }
+
+  const BREAKPOINT_MD = 768
+  const { enoughWidthToShow: breakpointMd } = useDisplay(BREAKPOINT_MD)
 </script>
 
 
@@ -46,12 +51,6 @@
 
       @media (min-width: $breakpoint-md) {
         font-size: 20px;
-      }
-    }
-
-    &__nav {
-      @media (min-width: $breakpoint-md) {
-        display: none;
       }
     }
   }

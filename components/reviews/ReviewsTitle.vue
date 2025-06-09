@@ -1,24 +1,25 @@
 <template>
   <div>
-    <div class="story-title" aria-labelledby="story-heading">
-      <h2 class="story-title__heading" id="story-heading" role="heading">Честные отзывы</h2>
+    <div class="reviews" aria-labelledby="story-heading">
+      <h2 class="reviews__heading" id="story-heading" role="heading">Честные отзывы</h2>
 
-      <MoreReviewsBlock class="story-title__more-reviews story-title__more-reviews--desktop" />
+      <MoreReviewsBlock class="reviews__more-reviews reviews__more-reviews--desktop" />
 
       <ArrowNavigation
-        class="story-title__nav"
+        v-if="breakpointXl"
         aria-label="Навигация по отзывам"
         @previous-card="handlePreviousCard"
         @next-card="handleNextCard"
       />
     </div>
 
-    <MoreReviewsBlock class="story-title__more-reviews story-title__more-reviews--mobile" />
+    <MoreReviewsBlock class="reviews__more-reviews reviews__more-reviews--mobile" />
   </div>
 </template>
 
 <script setup lang="ts">
   import MoreReviewsBlock from '@components/reviews/MoreReviewsBlock.vue'
+  import { useDisplay } from '~/composables/useDisplay'
 
   const emit = defineEmits<{
     (e: 'previous-card'): void
@@ -32,10 +33,13 @@
   const handleNextCard = () => {
     emit('next-card')
   }
+
+  const BREAKPOINT_XL = 1280
+  const { enoughWidthToShow: breakpointXl } = useDisplay(BREAKPOINT_XL)
 </script>
 
 <style scoped lang="scss">
-  .story-title {
+  .reviews {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -60,28 +64,19 @@
       }
     }
 
-    &__nav {
-      @media (min-width: $breakpoint-md) {
-        display: flex;
-      }
-
-      @media (min-width: $breakpoint-lg) {
-        display: none;
-      }
-    }
-
     &__more-reviews--mobile {
       @media (min-width: $breakpoint-md) {
         margin-top: 20px;
       }
 
-      @media (min-width: $breakpoint-lg) {
+      @media (min-width: $breakpoint-xl) {
         display: none;
       }
     }
+
     &__more-reviews--desktop {
       display: none;
-      @media (min-width: $breakpoint-lg) {
+      @media (min-width: $breakpoint-xl) {
         display: flex;
       }
     }

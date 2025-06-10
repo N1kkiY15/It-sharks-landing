@@ -10,7 +10,7 @@
           :key="index"
           variant="primary"
           class="header-menu__container-button"
-          @click="scrollToSection(button.sectionId)"
+          @click="handleScroll(button.sectionId)"
         >
           {{ button.text }}
         </ButtonComponent>
@@ -24,6 +24,7 @@
   import MenuIcon from '@assets/svg/socials/MenuIcon.vue'
   import StarMenu from '@assets/svg/stars/StarMenu.vue'
   import type { menuButton } from '@/types'
+  import { scrollToSection } from '~/composables/useScrollTo'
 
   interface Props {
     openMenu: boolean;
@@ -38,20 +39,18 @@
     { text: 'Обо мне', sectionId: 'about' },
     { text: 'Команда', sectionId: 'team' },
     { text: 'Программа', sectionId: 'program' },
-    { text: 'Кейсы', sectionId: 'cases' },
-    { text: 'Кому подойдет', sectionId: 'suitable' },
+    { text: 'Кейсы', sectionId: 'story' },
+    { text: 'Кому подойдет', sectionId: 'grades' },
     { text: 'Отзывы', sectionId: 'reviews' },
     { text: 'Выбрать тариф', sectionId: 'tariffs' },
   ]
 
-  const scrollToSection = (sectionId: string) => {
-    const element = document.getElementById(sectionId)
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth' })
-    }
+  const { scrollToEl } = scrollToSection()
+
+  const handleScroll = (sectionId: string) => {
+    scrollToEl(sectionId)
     emit('toggle-dropdown')
   }
-
 </script>
 
 <style scoped lang="scss">

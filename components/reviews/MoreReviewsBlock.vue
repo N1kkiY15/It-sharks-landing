@@ -53,6 +53,7 @@
       align-items: center;
       font-family: 'Clash Display', arial, sans-serif;
       padding: 5px 10px;
+      cursor: initial;
 
       @media (min-width: $breakpoint-sm) {
         gap: 10px;

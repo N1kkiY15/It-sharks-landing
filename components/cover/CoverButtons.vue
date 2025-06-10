@@ -2,12 +2,20 @@
   <nav class="cover-buttons">
     <div class="cover-buttons__more">
       <p class="cover-buttons__text">читать дальше</p>
-      <ButtonComponent variant="secondary" class="cover-buttons__arrow">
+      <ButtonComponent
+        variant="secondary"
+        class="cover-buttons__arrow"
+        @click="scrollToEl('about')"
+      >
         <DoubleArrow class="cover-buttons__arrow--double" />
       </ButtonComponent>
     </div>
 
-    <ButtonComponent variant="primary" class="cover-buttons__link">
+    <ButtonComponent
+      variant="primary"
+      class="cover-buttons__link"
+      @click="scrollToEl('grades')"
+    >
       <p class="cover-buttons__question">Кому подойдет ?</p>
       <RightArrowS class="cover-buttons__icon cover-buttons__icon--xs" />
       <RightArrowM class="cover-buttons__icon cover-buttons__icon--sm" />
@@ -23,6 +31,10 @@
   import DoubleArrow from '@assets/svg/arrows/DoubleArrow.vue'
   import RightArrowM from '@assets/svg/arrows/RightArrowM.vue'
   import RightArrowXl from '@assets/svg/arrows/RightArrowXL.vue'
+  import { scrollToSection } from '~/composables/useScrollTo'
+
+  const { scrollToEl } = scrollToSection()
+
 </script>
 
 <style scoped lang="scss">

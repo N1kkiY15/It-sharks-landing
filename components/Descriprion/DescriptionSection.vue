@@ -7,15 +7,18 @@
         этапе и результат, который оправдает ожидания.
       </p>
     </h2>
-    <ReadMore />
+    <ReadMore @click="scrollToEl('tariffs')" />
     <img class="description__decoration" src="/images/glass.png" loading="lazy" aria-hidden="true">
   </section>
 </template>
 
 <script setup lang="ts">
   import ReadMore from '@components/ReadMore.vue'
-</script>
+  import { scrollToSection } from '~/composables/useScrollTo'
 
+  const { scrollToEl } = scrollToSection()
+
+</script>
 
 <style scoped lang="scss">
   .description {

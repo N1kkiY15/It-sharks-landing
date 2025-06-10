@@ -9,6 +9,8 @@
 
     <ButtonComponent
       variant="primary"
+      tag="a"
+      href="https://t.me/yaparovty"
       class="grades-card__button"
       aria-label="Написать мне в Telegram"
     >

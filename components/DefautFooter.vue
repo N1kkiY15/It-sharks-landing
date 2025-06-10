@@ -8,13 +8,18 @@
     <div class="footer__container">
       <div>
         <p class="footer__logo">IT SHARKS</p>
-        <ButtonComponent class="footer__button" variant="primary">
+        <ButtonComponent
+          class="footer__button"
+          variant="primary"
+          tag="a"
+          href="https://t.me/+K-gGhf8lGYQ1NThi"
+        >
           <p class="footer__button-text">Записаться на консультацию</p>
           <TelegramIcon class="footer__button-icon" />
         </ButtonComponent>
       </div>
 
-      <ReadMore>
+      <ReadMore @click="scrollToTop">
         <template #text>на верх</template>
         <template #icon>
           <DoubleArrow class="footer__arrow" />
@@ -28,6 +33,10 @@
 
   import TelegramIcon from '@assets/svg/socials/TelegramIcon.vue'
   import DoubleArrow from '@assets/svg/arrows/DoubleArrow.vue'
+  import { scrollToSection } from '~/composables/useScrollTo'
+
+  const { scrollToTop } = scrollToSection()
+
 </script>
 
 <style scoped lang="scss">
@@ -103,20 +112,20 @@
       justify-content: center;
       gap: 10px;
       min-height: 35px;
-      min-width: 230px;
+      max-width: 230px;
       color: var(--accent-color);
 
       @media (min-width: $breakpoint-sm) {
-        min-width: 260px;
+        max-width: 260px;
       }
 
       @media (min-width: $breakpoint-md) {
         min-height: 50px;
-        min-width: 303px;
+        max-width: 303px;
       }
 
       @media (min-width: $breakpoint-lg) {
-        min-width: 386px;
+        max-width: 386px;
       }
 
       &-text {

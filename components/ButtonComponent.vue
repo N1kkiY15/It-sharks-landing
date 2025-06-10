@@ -1,23 +1,37 @@
 <template>
-  <button :class="buttonClasses">
+<component
+    :is="tag"
+    :class="buttonClasses"
+    :href="link"
+    target="_blank"
+  >
     <slot></slot>
-  </button>
+  </component>
 </template>
 
 <script setup lang="ts">
 
 type buttonVariant = "primary" | "secondary";
+type ButtonTag = "button" | "a";
 
 interface Props {
   variant: buttonVariant;
+  tag?: ButtonTag;
+  href?: string;
 }
 
-const props = defineProps<Props>();
+const props = withDefaults(defineProps<Props>(), {
+  tag: "button",
+});
 
 const buttonClasses = computed(() => ({
   primary: props.variant === "primary",
   secondary: props.variant === "secondary",
 }));
+
+const link = computed(() => {
+  return props.tag === 'a' ? props.href : undefined
+})
 
 </script>
 

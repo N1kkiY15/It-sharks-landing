@@ -1,5 +1,5 @@
 <template>
-  <section class="tariffs">
+  <section class="tariffs" id="tariffs">
 
     <TariffTitle
       @previous-card="() => carousel?.prev()"

@@ -1,16 +1,18 @@
 <template>
   <div class="more-reviews">
-    <ButtonComponent aria-label="Больше отзывов" variant="primary" class="more-reviews__button">
-      <p class="more-reviews__text">Больше отзывов</p>
+    <div aria-label="Больше отзывов" variant="primary" class="more-reviews__button--block">
+      <p class="more-reviews__text more-reviews__text--disabled">Больше отзывов</p>
       <RightArrowS />
-    </ButtonComponent>
+    </div>
 
     <ButtonComponent
       aria-label="Ссылка на канал с отзывами"
       variant="primary"
       class="more-reviews__button"
+      tag="a"
+      href="https://t.me/it_mentors"
     >
-      <p class="more-reviews__text more-reviews__text--link">@it_mentors</p>
+      <p class="more-reviews__text">@it_mentors</p>
     </ButtonComponent>
   </div>
 </template>
@@ -26,13 +28,8 @@
     gap: 10px;
 
     &__text {
-      color: var(--text-color);
       font-weight: 400;
       font-size: 12px;
-
-      &--link {
-        color: var(--accent-color);
-      }
 
       @media (min-width: $breakpoint-sm) {
         font-size: 14px;
@@ -61,6 +58,30 @@
       @media (min-width: $breakpoint-md) {
         padding: 12px 18px;
       }
+
+      &--block {
+        display: flex;
+        gap: 6px;
+        align-items: center;
+        padding: 7px 15px;
+        border-radius: 500px;
+        background-color: var(--el-bg-color);
+        color: var(--accent-color);
+      }
     }
   }
 </style>
+
+@mixin button-base {
+padding: 7px 15px;
+border-radius: 500px;
+transition: background-color 0.2s, color 0.2s;
+
+@media (min-width: $breakpoint-md) {
+padding: 15px 20px;
+}
+
+@media (min-width: $breakpoint-lg) {
+padding: 20px 30px;
+}
+}

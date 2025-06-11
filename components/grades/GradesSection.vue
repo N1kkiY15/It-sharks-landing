@@ -1,5 +1,5 @@
 <template>
-  <section class="grade">
+  <section class="grade" id="grades">
     <p class="grade__header">кому подойдет</p>
     <div class="grade__container">
       <GradesCard v-for="(grade, index) in grades" :key="index" :grade="grade" />

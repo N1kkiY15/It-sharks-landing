@@ -1,5 +1,5 @@
 <template>
-  <section class="tariffs">
+  <section class="tariffs" id="tariffs">
 
     <TariffTitle
       @previous-card="() => carousel?.prev()"
@@ -43,8 +43,7 @@
     `,
       button: {
         title: `Записаться на консультацию`,
-        color: `#F4F4F41A`,
-        textcolor: `var(--accent-color)`,
+        type: `primary`,
         link: `link`,
       },
       component: TelegramIcon,
@@ -60,8 +59,7 @@
     `,
       button: {
         title: `Купить консультацию`,
-        color: `var(--accent-color)`,
-        textcolor: `var(--bg-color)`,
+        type: `secondary`,
         link: `link`,
       },
     },
@@ -82,8 +80,7 @@
     `,
       button: {
         title: `Купить тариф №1`,
-        color: `var(--accent-color)`,
-        textcolor: `var(--bg-color)`,
+        type: `secondary`,
         link: `link`,
       },
     },
@@ -104,8 +101,7 @@
     `,
       button: {
         title: `Купить тариф №2`,
-        color: `var(--accent-color)`,
-        textcolor: `var(--bg-color)`,
+        type: `secondary`,
         link: `link`,
       },
     },

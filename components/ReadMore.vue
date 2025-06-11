@@ -3,7 +3,7 @@
     <p class="read-more__text">
       <slot name="text">читать дальше</slot>
     </p>
-    <ButtonComponent variant="secondary" class="read-more__arrow">
+    <ButtonComponent variant="tertiary" class="read-more__arrow">
       <slot name="icon">
         <DoubleArrow class="read-more__arrow--double"/>
       </slot>

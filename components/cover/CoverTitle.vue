@@ -8,8 +8,16 @@
       <span class="cover-title__line-span" aria-hidden="true"> ONE </span>
     </div>
     <div class="cover-title__socials">
-      <EmailButton class="cover-title__socials-button" />
-      <TelegramButton class="cover-title__socials-button" />
+      <EmailButton
+        class="cover-title__socials-button"
+        tag="a"
+        href="mailto:timmyya999@gmail.com"
+      />
+      <TelegramButton
+        class="cover-title__socials-button"
+        tag="a"
+        href="https://t.me/+K-gGhf8lGYQ1NThi"
+      />
     </div>
   </div>
 </template>

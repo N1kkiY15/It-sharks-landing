@@ -1,27 +1,55 @@
 <template>
   <div class="header">
-    <h1 class="header__heading">IT Sharks</h1>
+    <h1 class="header__heading">
+      <a href="#">
+        IT Sharks
+      </a>
+    </h1>
     <nav class="header__navigation" aria-label="Основная навигация">
       <div class="header__navigation-container">
-        <a class="header__navigation-link" href="#" aria-label="Перейти к разделу программа">
+        <button
+          class="header__navigation-link"
+          aria-label="Перейти к разделу программа"
+          @click="scrollToEl('program')"
+        >
           Программа
-        </a>
-        <a class="header__navigation-link" href="#" aria-label="Перейти к разделу кейсы">Кейсы</a>
-        <a class="header__navigation-link" href="#" aria-label="Перейти к разделу отзывы"
-        >Отзывы
-        </a>
+        </button>
+        <button
+          class="header__navigation-link"
+          aria-label="Перейти к разделу кейсы"
+          @click="scrollToEl('story')"
+        >
+          Кейсы
+        </button>
+        <button
+          class="header__navigation-link"
+          aria-label="Перейти к разделу отзывы"
+          @click="scrollToEl('reviews')"
+        >
+          Отзывы
+        </button>
       </div>
 
-      <ButtonComponent variant="primary" class="header__navigation-button">
-        <a class="header__navigation-order" href="#" aria-label="Перейти к выбору тарифа"
-        >Выбрать тариф</a
-        >
+      <ButtonComponent
+        variant="primary"
+        class="header__navigation-button"
+        @click="scrollToEl('tariffs')"
+      >
+        Выбрать тариф
       </ButtonComponent>
     </nav>
     <div class="header__mobile">
       <div class="header__mobile-container">
-        <EmailButton class="header__mobile-icon" />
-        <TelegramButton class="header__mobile-icon" />
+        <EmailButton
+          class="header__mobile-icon"
+          tag="a"
+          href="mailto:timmyya999@gmail.com"
+        />
+        <TelegramButton
+          class="header__mobile-icon"
+          tag="a"
+          href="https://t.me/+K-gGhf8lGYQ1NThi"
+        />
       </div>
       <button @click="toggleDropdown">
         <MenuIcon />
@@ -35,7 +63,7 @@
     />
 
     <HeaderMobileMenu
-      v-if="isMobileScreen"
+      v-if="breakpointMd"
       :openMenu="isOpen"
       @toggle-dropdown="toggleDropdown"
     />
@@ -44,6 +72,8 @@
 
 <script setup lang="ts">
   import MenuIcon from '@assets/svg/socials/MenuIcon.vue'
+  import { useDisplay } from '~/composables/useDisplay'
+  import { scrollToSection } from '~/composables/useScrollTo'
 
   const isOpen = ref(false)
 
@@ -64,26 +94,10 @@
     }
   }
 
-  const isMobileScreen = ref<boolean>(false)
   const BREAKPOINT_MD = 768
+  const { enoughWidthToShow: breakpointMd } = useDisplay(BREAKPOINT_MD)
+  const { scrollToEl } = scrollToSection()
 
-  const checkScreenSize = () => {
-    isMobileScreen.value = window.innerWidth <= BREAKPOINT_MD
-  }
-
-  onMounted(() => {
-    checkScreenSize()
-    window.addEventListener('resize', checkScreenSize)
-  })
-
-  onBeforeUnmount(() => {
-    window.removeEventListener('resize', checkScreenSize)
-
-    if (process.client) {
-      document.body.style.overflow = ''
-      document.body.style.touchAction = ''
-    }
-  })
 
 </script>
 
@@ -172,56 +186,64 @@
       &-container {
         display: flex;
         flex-direction: row;
-        gap: 20px;
+        align-items: center;
         background-color: var(--el-bg-color);
         border-radius: 500px;
         color: var(--text-color);
-
-        @media (min-width: $breakpoint-lg) {
-          gap: 30px;
-        }
       }
 
       &-link {
         font-weight: 400;
         font-size: 16px;
-        padding: 15px 0;
+        padding: 15px 20px;
         line-height: 100%;
         letter-spacing: 1px;
         color: inherit;
+        position: relative;
+        border-radius: 500px;
+        transition: background-color 0.3s ease;
 
         &:first-child {
-          padding-left: 20px;
-
-          @media (min-width: $breakpoint-lg) {
-            padding-left: 30px;
-          }
+          padding-left: 30px;
+          padding-right: 30px;
         }
 
         &:last-child {
-          padding-right: 20px;
+          padding-right: 30px;
+          padding-left: 30px;
+        }
 
-          @media (min-width: $breakpoint-lg) {
-            padding-right: 30px;
-          }
+        &:hover {
+          background-color: var(--hover-header-container-color);
+        }
+
+        &:active {
+          background-color: var(--text-color);
+          color: var(--bg-color);
         }
 
         @media (min-width: $breakpoint-lg) {
-          padding: 20px 0;
+          padding: 20px 15px;
           font-size: 20px;
         }
       }
 
       &-button {
         background-color: var(--decorative-color);
-        color: var(--color-text);
-      }
-
-      &-order {
         color: var(--bg-color);
         font-weight: 400;
         font-size: 16px;
         line-height: 100%;
+
+        &:hover {
+          background-color: var(--hover-decorative-color);
+          color: var(--text-color);
+        }
+
+        &:active {
+          background-color: var(--text-color);
+          color: var(--bg-color);
+        }
 
         @media (min-width: $breakpoint-lg) {
           font-size: 20px;

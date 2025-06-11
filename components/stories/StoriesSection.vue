@@ -1,5 +1,5 @@
 <template>
-  <section class="story">
+  <section class="story" id="story">
 
     <StoriesTitle
       @previous-card="() => carousel?.prev()"

@@ -9,6 +9,8 @@
 
     <ButtonComponent
       variant="primary"
+      tag="a"
+      href="https://t.me/yaparovty"
       class="grades-card__button"
       aria-label="Написать мне в Telegram"
     >
@@ -106,7 +108,6 @@
       margin-top: auto;
       align-items: center;
       gap: 10px;
-      color: var(--text-color);
 
       @media (min-width: $breakpoint-md) {
         min-width: 184px;
@@ -118,7 +119,6 @@
       }
 
       &-text {
-        color: var(--accent-color);
         font-weight: 400;
         font-size: 12px;
         line-height: 100%;

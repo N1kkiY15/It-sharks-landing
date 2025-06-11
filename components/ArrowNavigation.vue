@@ -10,7 +10,7 @@
     </ButtonComponent>
 
     <ButtonComponent
-      variant="primary"
+      variant="tertiary"
       class="navigation__button"
       @click="nextCard"
       aria-label="Следующая карточка"

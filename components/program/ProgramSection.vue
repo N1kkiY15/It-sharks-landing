@@ -1,5 +1,5 @@
 <template>
-  <section class="program">
+  <section class="program" id="program">
     <ProgramHeader />
     <ProgramDescription />
     <ProgramList />

@@ -7,8 +7,13 @@
     </p>
     <NuxtImg class="about-us__image" src="/images/Timur.png" alt="" loading="lazy" />
 
-    <ButtonComponent class="about-us__link" variant="primary">
-      <p class="about-us__link-text">Наш телеграм-канал</p>
+    <ButtonComponent
+      class="about-us__button"
+      variant="secondary"
+      tag="a"
+      href="https://t.me/+K-gGhf8lGYQ1NThi"
+    >
+      <p class="about-us__button-text">Наш телеграм-канал</p>
       <TelegramIcon color="var(--bg-color)" class="about-us__icon" />
     </ButtonComponent>
   </div>
@@ -83,7 +88,7 @@
       }
     }
 
-    &__link {
+    &__button {
       display: flex;
       flex-direction: row;
       align-items: center;
@@ -112,7 +117,6 @@
 
       &-text {
         font-family: 'Clash Display', arial, sans-serif;
-        color: var(--bg-color);
         padding: 3px 0;
         font-weight: 400;
         font-size: 14px;

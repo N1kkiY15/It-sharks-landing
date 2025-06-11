@@ -6,3 +6,11 @@
     />
   </svg>
 </template>
+
+
+<style lang="scss" scoped>
+  button:active svg path {
+    fill: var(--text-color);
+  }
+</style>
+

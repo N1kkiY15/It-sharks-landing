@@ -3,7 +3,7 @@
     <div class="cover-buttons__more">
       <p class="cover-buttons__text">читать дальше</p>
       <ButtonComponent
-        variant="secondary"
+        variant="tertiary"
         class="cover-buttons__arrow"
         @click="scrollToEl('about')"
       >
@@ -84,7 +84,6 @@
     }
 
     &__question {
-      color: var(--accent-color);
       max-width: 76px;
       text-align: left;
       font-weight: 400;

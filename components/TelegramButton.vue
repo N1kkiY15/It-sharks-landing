@@ -1,5 +1,5 @@
 <template>
-  <ButtonComponent variant="secondary" aria-label="Telegram">
+  <ButtonComponent variant="tertiary" aria-label="Telegram">
     <TelegramIcon aria-hidden="true" />
   </ButtonComponent>
 </template>

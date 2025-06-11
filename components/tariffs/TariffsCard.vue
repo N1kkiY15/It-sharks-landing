@@ -14,10 +14,9 @@
 
     </div>
     <ButtonComponent
-      variant="primary"
+      :variant="tariff.button.type"
       class="tariffs-card__button"
       aria-label="Написать мне в Telegram"
-      :style="buttonStyles"
     >
       <p class="tariffs-card__button-text">{{ tariff.button.title }}</p>
       <component class="tariffs-card__button-icon" :is="tariff.component" aria-hidden="true" />
@@ -28,14 +27,9 @@
 <script setup lang="ts">
   import type { TariffCard } from '@/types'
 
-  const props = defineProps<{
+  defineProps<{
     tariff: TariffCard;
   }>()
-
-  const buttonStyles = computed(() => ({
-    backgroundColor: props.tariff.button.color,
-    color: props.tariff.button.textcolor
-  }))
 
 </script>
 
@@ -164,7 +158,6 @@
       margin-top: auto;
       align-items: center;
       gap: 10px;
-      color: var(--text-color);
       min-height: 35px;
 
       @media (min-width: $breakpoint-md) {

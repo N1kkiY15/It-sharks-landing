@@ -1,5 +1,5 @@
 <template>
-  <ButtonComponent variant="secondary" aria-label="Email">
+  <ButtonComponent variant="tertiary" aria-label="Email">
     <MailIcon aria-hidden="true" />
   </ButtonComponent>
 </template>

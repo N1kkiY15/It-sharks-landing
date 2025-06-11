@@ -31,10 +31,11 @@ export interface GradesCard {
   description: string
 }
 
+export type buttonVariant = 'primary' | 'secondary' | 'tertiary';
+
 export interface TariffCardButton {
   title: string
-  color: string
-  textcolor: string
+  type: buttonVariant
   link: string
 }
 

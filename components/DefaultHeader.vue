@@ -35,7 +35,7 @@
         class="header__navigation-button"
         @click="scrollToEl('tariffs')"
       >
-          Выбрать тариф
+        Выбрать тариф
       </ButtonComponent>
     </nav>
     <div class="header__mobile">
@@ -186,52 +186,64 @@
       &-container {
         display: flex;
         flex-direction: row;
-        gap: 20px;
+        align-items: center;
         background-color: var(--el-bg-color);
         border-radius: 500px;
         color: var(--text-color);
-
-        @media (min-width: $breakpoint-lg) {
-          gap: 30px;
-        }
       }
 
       &-link {
         font-weight: 400;
         font-size: 16px;
-        padding: 15px 0;
+        padding: 15px 20px;
         line-height: 100%;
         letter-spacing: 1px;
         color: inherit;
+        position: relative;
+        border-radius: 500px;
+        transition: background-color 0.3s ease;
 
         &:first-child {
-          padding-left: 20px;
-
-          @media (min-width: $breakpoint-lg) {
-            padding-left: 30px;
-          }
+          padding-left: 30px;
+          padding-right: 30px;
         }
 
         &:last-child {
-          padding-right: 20px;
+          padding-right: 30px;
+          padding-left: 30px;
+        }
 
-          @media (min-width: $breakpoint-lg) {
-            padding-right: 30px;
-          }
+        &:hover {
+          background-color: var(--hover-header-container-color);
+        }
+
+        &:active {
+          background-color: var(--text-color);
+          color: var(--bg-color);
         }
 
         @media (min-width: $breakpoint-lg) {
-          padding: 20px 0;
+          padding: 20px 15px;
           font-size: 20px;
         }
       }
 
       &-button {
         background-color: var(--decorative-color);
-        color: var(--color-text);
+        color: var(--bg-color);
         font-weight: 400;
         font-size: 16px;
         line-height: 100%;
+
+        &:hover {
+          background-color: var(--hover-decorative-color);
+          color: var(--text-color);
+        }
+
+        &:active {
+          background-color: var(--text-color);
+          color: var(--bg-color);
+        }
 
         @media (min-width: $breakpoint-lg) {
           font-size: 20px;

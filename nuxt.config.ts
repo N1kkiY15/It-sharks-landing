@@ -15,11 +15,14 @@ export default defineNuxtConfig({
   app: {
     head: {
       title: 'IT Sharks',
+      htmlAttrs: {
+        lang: 'ru',
+      },
       viewport: 'width=device-width, initial-scale=1',
       meta: [
         {
-          name: 'IT Sharks',
-          content: 'Описание сайта',
+          name: 'description',
+          content: 'Профессиональные курсы по Python, Mobile Dev, Frontend, Golang, Продакт-менеджменту и Machine Learning. Практика с менторами из топовых IT-компаний. Старт карьеры с гарантией трудоустройства.',
         },
       ],
       link: [

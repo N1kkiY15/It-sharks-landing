@@ -2,7 +2,7 @@
   <div v-if="question" class="faq-item" :style="{ paddingBottom: toggleAnswer ? '16px' : '0' }">
     <div class="faq-item__heading" @click="showAnswer">
       <p class="faq-item__question">{{ question.question }}</p>
-      <button>
+      <button aria-label="Открыть ответ">
         <PlusIcon v-if="!toggleAnswer" class="faq-item__heading-icon" />
         <MinusIcon v-else class="faq-item__heading-icon" />
       </button>

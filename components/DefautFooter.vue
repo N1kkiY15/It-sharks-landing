@@ -13,13 +13,18 @@
           variant="primary"
           tag="a"
           href="https://t.me/+K-gGhf8lGYQ1NThi"
+          aria-label="Записаться на консультацию"
         >
           <p class="footer__button-text">Записаться на консультацию</p>
           <TelegramIcon class="footer__button-icon" />
         </ButtonComponent>
       </div>
 
-      <ReadMore @click="scrollToTop" class="footer__scroll">
+      <ReadMore
+        class="footer__scroll">
+        aria-label="Подняться наверх"
+        @click="scrollToTop"
+        >
         <template #text>на верх</template>
         <template #icon>
           <DoubleArrow class="footer__arrow" />

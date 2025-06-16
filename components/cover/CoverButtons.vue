@@ -5,6 +5,7 @@
       <ButtonComponent
         variant="tertiary"
         class="cover-buttons__arrow"
+        aria-label="Перейти к разделу 'О нас'"
         @click="scrollToEl('about')"
       >
         <DoubleArrow class="cover-buttons__arrow--double" />
@@ -14,6 +15,7 @@
     <ButtonComponent
       variant="primary"
       class="cover-buttons__link"
+      aria-label="Перейти к разделу 'Кому подойдет ?"
       @click="scrollToEl('grades')"
     >
       <p class="cover-buttons__question">Кому подойдет ?</p>

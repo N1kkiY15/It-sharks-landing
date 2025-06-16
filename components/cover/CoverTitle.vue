@@ -1,6 +1,6 @@
 <template>
   <div class="cover-title">
-    <div class="cover-title__line" aria-label="ONE TO ONE">
+    <div class="cover-title__line" role="heading" aria-label="ONE TO ONE">
       <span class="cover-title__line-span" aria-hidden="true"> ONE </span>
       <RightArrow class="cover-title__line-arrow" aria-hidden="true" />
       <span class="cover-title__line-span" aria-hidden="true"> TO </span>
@@ -12,11 +12,13 @@
         class="cover-title__socials-button"
         tag="a"
         href="mailto:timmyya999@gmail.com"
+        aria-label="Написать на почту"
       />
       <TelegramButton
         class="cover-title__socials-button"
         tag="a"
         href="https://t.me/+K-gGhf8lGYQ1NThi"
+        aria-label="Написать в телеграм"
       />
     </div>
   </div>

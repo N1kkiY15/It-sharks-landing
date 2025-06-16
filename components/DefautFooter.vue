@@ -21,7 +21,7 @@
       </div>
 
       <ReadMore
-        class="footer__scroll">
+        class="footer__scroll"
         aria-label="Подняться наверх"
         @click="scrollToTop"
         >

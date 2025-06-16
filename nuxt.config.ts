@@ -11,8 +11,8 @@ export default defineNuxtConfig({
     '@styles': fileURLToPath(new URL('./assets/styles', import.meta.url)),
     '@public': fileURLToPath(new URL('./public', import.meta.url)),
   },
-
   app: {
+    baseURL: '/N1kki15/',
     head: {
       title: 'IT Sharks',
       htmlAttrs: {

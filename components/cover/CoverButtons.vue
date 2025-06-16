@@ -77,6 +77,14 @@
       gap: 15px;
       align-items: center;
 
+      :deep(.icon-path) {
+        fill: var(--text-color);
+      }
+
+      &:active :deep(.icon-path) {
+        fill: var(--bg-color);
+      }
+
       @media (min-width: $breakpoint-md) {
         align-self: flex-end;
         gap: 20px;
@@ -108,6 +116,10 @@
       width: 40px;
       height: 40px;
 
+      &:active :deep(.icon-path) {
+        fill: var(--text-color);
+      }
+
       @media (min-width: $breakpoint-md) {
         width: 60px;
         height: 60px;
@@ -121,6 +133,10 @@
       &--double {
         height: 12px;
         width: 12px;
+
+        :deep(.icon-path) {
+          fill: var(--decorative-color);
+        }
 
         @media (min-width: $breakpoint-md) {
           height: 17px;

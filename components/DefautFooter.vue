@@ -19,7 +19,7 @@
         </ButtonComponent>
       </div>
 
-      <ReadMore @click="scrollToTop">
+      <ReadMore @click="scrollToTop" class="footer__scroll">
         <template #text>на верх</template>
         <template #icon>
           <DoubleArrow class="footer__arrow" />
@@ -157,10 +157,20 @@
       }
     }
 
+    &__scroll {
+      &:active :deep(.icon-path) {
+        fill: var(--text-color);
+      }
+    }
+
     &__arrow {
       width: 11px;
       height: 11px;
       transform: rotate(180deg);
+
+      :deep(.icon-path) {
+        fill: var(--decorative-color);
+      }
 
       @media (min-width: $breakpoint-md) {
         width: 16px;

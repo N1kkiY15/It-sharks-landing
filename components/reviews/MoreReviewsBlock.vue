@@ -1,7 +1,7 @@
 <template>
   <div class="more-reviews">
-    <div aria-label="Больше отзывов" variant="primary" class="more-reviews__button--block">
-      <p class="more-reviews__text more-reviews__text--disabled">Больше отзывов</p>
+    <div aria-label="Больше отзывов" class="more-reviews__button--block">
+      <p class="more-reviews__text">Больше отзывов</p>
       <RightArrowS />
     </div>
 
@@ -63,25 +63,15 @@
         display: flex;
         gap: 6px;
         align-items: center;
+        color: var(--text-color);
         padding: 7px 15px;
         border-radius: 500px;
         background-color: var(--el-bg-color);
-        color: var(--accent-color);
+
+        :deep(.icon-path) {
+          fill: var(--text-color);
+        }
       }
     }
   }
 </style>
-
-@mixin button-base {
-padding: 7px 15px;
-border-radius: 500px;
-transition: background-color 0.2s, color 0.2s;
-
-@media (min-width: $breakpoint-md) {
-padding: 15px 20px;
-}
-
-@media (min-width: $breakpoint-lg) {
-padding: 20px 30px;
-}
-}

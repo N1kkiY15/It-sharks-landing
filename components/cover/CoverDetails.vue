@@ -24,6 +24,10 @@
     flex-direction: row;
     gap: 10px;
 
+    :deep(.icon-path) {
+      fill: var(--text-color);
+    }
+
     @media (min-width: $breakpoint-sm) {
       top: 200px;
     }

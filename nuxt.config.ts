@@ -12,7 +12,7 @@ export default defineNuxtConfig({
     '@public': fileURLToPath(new URL('./public', import.meta.url)),
   },
   app: {
-    baseURL: '/N1kki15/',
+    baseURL: '/',
     head: {
       title: 'IT Sharks',
       htmlAttrs: {

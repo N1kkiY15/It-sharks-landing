@@ -7,7 +7,7 @@
         этапе и результат, который оправдает ожидания.
       </p>
     </h2>
-    <ReadMore @click="scrollToEl('tariffs')" />
+    <ReadMore @click="scrollToEl('tariffs')" class="description__button"/>
     <img class="description__decoration" src="/images/glass.png" loading="lazy" aria-hidden="true">
   </section>
 </template>
@@ -87,6 +87,16 @@
         @media (min-width: $breakpoint-xl) {
           margin-left: 600px;
         }
+      }
+    }
+
+    &__button {
+      :deep(.icon-path) {
+        fill: var(--decorative-color);
+      }
+
+      &:active :deep(.icon-path) {
+        fill: var(--text-color);
       }
     }
 

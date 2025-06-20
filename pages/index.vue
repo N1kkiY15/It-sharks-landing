@@ -1,14 +1,14 @@
 <template>
   <CoverSection class="cover"/>
-  <AboutSection class="about"/>
-  <TeamSection class="team"/>
-  <ProgramSection class="program"/>
-  <StoriesSection class="stories"/>
-  <GradesSection class="grades"/>
-  <DescriptionSection class="description"/>
-  <TariffsSection class="tariffs" />
-  <ReviewsSection class="reviews" />
-  <FAQSection class="faq"/>
+  <AboutSection class="about"data-aos="fade-up"/>
+  <TeamSection class="team" data-aos="fade-up"/>
+  <ProgramSection class="program" data-aos="fade-up"/>
+  <StoriesSection class="stories" data-aos="fade-up"/>
+  <GradesSection class="grades" data-aos="fade-up"/>
+  <DescriptionSection class="description" data-aos="fade-up"/>
+  <TariffsSection class="tariffs" data-aos="fade-up" />
+  <ReviewsSection class="reviews" data-aos="fade-up" />
+  <FAQSection class="faq" data-aos="fade-up" />
 </template>
 
 <script setup lang="ts">

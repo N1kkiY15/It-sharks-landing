@@ -39,6 +39,6 @@ export default defineNuxtConfig({
       },
     },
   },
-  css: ['~/assets/styles/main.scss'],
-  modules: ['@nuxt/image', 'vue3-carousel-nuxt'],
+  css: ['~/assets/styles/main.scss', 'aos/dist/aos.css'],
+  modules: ['@nuxt/image', 'vue3-carousel-nuxt', 'nuxt-aos']
 })

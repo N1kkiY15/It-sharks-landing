@@ -1,6 +1,6 @@
 <template>
   <CoverSection class="cover"/>
-  <AboutSection class="about"data-aos="fade-up"/>
+  <AboutSection class="about" data-aos="fade-up"/>
   <TeamSection class="team" data-aos="fade-up"/>
   <ProgramSection class="program" data-aos="fade-up"/>
   <StoriesSection class="stories" data-aos="fade-up"/>

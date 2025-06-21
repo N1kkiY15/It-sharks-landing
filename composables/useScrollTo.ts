@@ -1,11 +1,18 @@
 export const scrollToSection = () => {
-const scrollToEl = (sectionId: string) => {
 
-    const element = document.getElementById(sectionId)
+  const AOS_OFFSET = 120;
+
+  const scrollToEl = (sectionId: string) => {
+    const element = document.getElementById(sectionId);
     if (element) {
-      element.scrollIntoView()
+      const elementPosition = element.getBoundingClientRect().top;
+      const offsetPosition = elementPosition + window.pageYOffset - AOS_OFFSET;
+
+      window.scrollTo({
+        top: offsetPosition,
+      });
     }
-  }
+  };
 
   const scrollToTop = () => {
     window.scrollTo({

@@ -14,6 +14,9 @@
       :wrap-around="true"
       :snap-align="'center'"
       :gap="10"
+      @touchstart="onTouchStart"
+      @touchmove="onTouchMove"
+      @touchend="onTouchEnd"
     >
       <Slide v-for="(tariff, index) in tariffs" :key="index">
         <TariffsCard :tariff="tariff" :key="index" class="tariffs__carousel-item" />
@@ -31,6 +34,7 @@
   import { useDisplay } from '@/composables/useDisplay'
   import TariffTitle from '@components/tariffs/TariffTitle.vue'
   import TelegramIcon from '@assets/svg/socials/TelegramIcon.vue'
+  import { useHorizontalSwipeBlock } from '@/composables/useHorizontalSwipeBlock'
 
   const tariffs: TariffCard[] = [
     {
@@ -110,6 +114,8 @@
 
   const BREAKPOINT_MD = 768
   const { enoughWidthToShow: breakpointMd } = useDisplay(BREAKPOINT_MD)
+
+  const { onTouchStart, onTouchMove, onTouchEnd } = useHorizontalSwipeBlock()
 </script>
 
 <style scoped lang="scss">

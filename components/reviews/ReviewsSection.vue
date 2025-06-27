@@ -14,6 +14,9 @@
       :wrap-around="true"
       :snap-align="'center'"
       :gap="10"
+      @touchstart="onTouchStart"
+      @touchmove="onTouchMove"
+      @touchend="onTouchEnd"
     >
       <Slide v-for="(review, index) in reviews" :key="index">
         <ReviewsCard :review="review" :key="index" class="tariffs__carousel-item" />
@@ -30,6 +33,7 @@
   import ReviewsTitle from '@components/reviews/ReviewsTitle.vue'
   import type { ReviewCard } from '@/types'
   import { useDisplay } from '~/composables/useDisplay'
+  import { useHorizontalSwipeBlock } from '@/composables/useHorizontalSwipeBlock'
 
   const reviews: ReviewCard[] = [
     {
@@ -66,6 +70,8 @@
 
   const BREAKPOINT_XL = 1280
   const { enoughWidthToShow: breakpointXl } = useDisplay(BREAKPOINT_XL)
+
+  const { onTouchStart, onTouchMove, onTouchEnd } = useHorizontalSwipeBlock()
 </script>
 
 <style scoped lang="scss">

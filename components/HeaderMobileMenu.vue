@@ -80,10 +80,10 @@
     &__container {
       display: flex;
       flex-direction: column;
-      gap: 5px;
+      gap: 10px;
 
       @media (min-width: $breakpoint-sm) {
-        gap: 10px;
+        gap: 16px;
       }
 
       :last-child {
@@ -96,13 +96,19 @@
         background-color: var(--el-bg-color);
         border-radius: 500px;
         width: max-content;
-        padding: 10px 20px;
-        font-weight: 400;
-        font-size: 12px;
-        line-height: 100%;
+        min-width: 120px;
+        min-height: 40px;
+        padding: 14px 28px;
+        font-weight: 500;
+        font-size: 14px;
+        line-height: 120%;
+        transition: background 0.2s, color 0.2s;
 
         @media (min-width: $breakpoint-sm) {
-          font-size: 14px;
+          font-size: 16px;
+          min-width: 150px;
+          min-height: 48px;
+          padding: 16px 32px;
         }
       }
     }

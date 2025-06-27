@@ -14,6 +14,9 @@
       :wrap-around="true"
       :snap-align="'center'"
       :gap="15"
+      @touchstart="onTouchStart"
+      @touchmove="onTouchMove"
+      @touchend="onTouchEnd"
     >
       <Slide v-for="(story, index) in stories" :key="index">
         <StoriesCard :story="story" class="story__carousel-item" />
@@ -33,6 +36,7 @@
 <script setup lang="ts">
 import { useDisplay } from '@/composables/useDisplay'
 import type { StoriesCard } from '@/types'
+import { useHorizontalSwipeBlock } from '@/composables/useHorizontalSwipeBlock'
 
 const stories: StoriesCard[] = [
   {
@@ -61,6 +65,8 @@ const carousel = ref()
 
 const BREAKPOINT_LG = 960
 const { enoughWidthToShow: breakpointLg } = useDisplay(BREAKPOINT_LG)
+
+const { onTouchStart, onTouchMove, onTouchEnd } = useHorizontalSwipeBlock()
 </script>
 
 <style scoped lang="scss">

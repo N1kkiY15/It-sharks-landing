@@ -14,6 +14,9 @@
       :wrap-around="true"
       :snap-align="'center'"
       :gap="15"
+      @touchstart="onTouchStart"
+      @touchmove="onTouchMove"
+      @touchend="onTouchEnd"
     >
       <Slide v-for="(card, index) in cards" :key="index">
         <TeamCard :card="card" class="team__carousel-item" />
@@ -33,6 +36,7 @@
 <script setup lang="ts">
   import type { TeamCard } from '@/types'
   import { useDisplay } from '@/composables/useDisplay'
+  import { useHorizontalSwipeBlock } from '@/composables/useHorizontalSwipeBlock'
 
   const carousel = ref()
   const cards: TeamCard[] = [
@@ -113,6 +117,8 @@
 
   const BREAKPOINT_MD = 768
   const { enoughWidthToShow: breakpointMd } = useDisplay(BREAKPOINT_MD)
+
+  const { onTouchStart, onTouchMove, onTouchEnd } = useHorizontalSwipeBlock()
 </script>
 
 <style scoped lang="scss">

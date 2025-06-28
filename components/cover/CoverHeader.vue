@@ -2,9 +2,9 @@
   <h1 class="cover-header">
     <span class="cover-header__line">личное обучение</span>
     <span class="cover-header__line">менторы</span>
-    <NuxtImg
+    <img
       class="cover-header__image"
-      src="/images/Shark.svg"
+      src="/images/Shark.png"
       alt=""
       role="presentation"
     />

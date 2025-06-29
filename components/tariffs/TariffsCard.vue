@@ -15,6 +15,8 @@
     </div>
     <ButtonComponent
       :variant="tariff.button.type"
+      tag="a"
+      :href="tariff.button.link"
       class="tariffs-card__button"
       aria-label="Написать мне в Telegram"
     >

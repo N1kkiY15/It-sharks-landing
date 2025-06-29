@@ -17,7 +17,7 @@
       <TelegramButton
         class="cover-title__socials-button"
         tag="a"
-        href="https://t.me/+K-gGhf8lGYQ1NThi"
+        href="https://t.me/yaparovty"
         aria-label="Написать в телеграм"
       />
     </div>

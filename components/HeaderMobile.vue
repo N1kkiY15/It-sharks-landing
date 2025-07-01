@@ -26,14 +26,12 @@
   }>()
 </script>
 
-
-
 <style scoped lang="scss">
   .header-mobile {
     display: flex;
     flex-direction: row;
     align-items: center;
-    gap: 10px;
+    gap: 15px;
 
     @media (min-width: $breakpoint-sm) {
       display: flex;

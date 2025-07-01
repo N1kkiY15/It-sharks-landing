@@ -11,7 +11,7 @@
 </template>
 
 <script setup lang="ts">
-  import type { buttonVariant } from '@/types'
+  import type { buttonVariant } from '~/types'
 
   type ButtonTag = 'button' | 'a';
 

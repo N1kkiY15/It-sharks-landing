@@ -38,23 +38,8 @@
         Выбрать тариф
       </ButtonComponent>
     </nav>
-    <div class="header__mobile">
-      <div class="header__mobile-container">
-        <EmailButton
-          class="header__mobile-icon"
-          tag="a"
-          href="mailto:timmyya999@gmail.com"
-        />
-        <TelegramButton
-          class="header__mobile-icon"
-          tag="a"
-          href="https://t.me/+K-gGhf8lGYQ1NThi"
-        />
-      </div>
-      <button @click="toggleDropdown">
-        <MenuIcon />
-      </button>
-    </div>
+
+    <HeaderMobile @toggle-dropdown="toggleDropdown"/>
 
     <div
       class="page-blur"
@@ -71,7 +56,6 @@
 </template>
 
 <script setup lang="ts">
-  import MenuIcon from '@assets/svg/socials/MenuIcon.vue'
   import { useDisplay } from '~/composables/useDisplay'
   import { scrollToSection } from '~/composables/useScrollTo'
 
@@ -248,37 +232,6 @@
         @media (min-width: $breakpoint-lg) {
           font-size: 20px;
         }
-      }
-    }
-
-    &__mobile {
-      display: flex;
-      flex-direction: row;
-      align-items: center;
-      gap: 10px;
-
-      @media (min-width: $breakpoint-sm) {
-        display: flex;
-      }
-
-      &-container {
-        display: flex;
-        gap: 5px;
-
-        @media (min-width: $breakpoint-sm) {
-          display: none;
-          gap: 5px;
-        }
-      }
-
-      &-icon {
-        padding: 5px;
-        width: 21px;
-        height: 21px;
-      }
-
-      @media (min-width: $breakpoint-md) {
-        display: none;
       }
     }
   }

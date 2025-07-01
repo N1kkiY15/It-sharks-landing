@@ -23,7 +23,7 @@
 <script setup lang="ts">
   import MenuIcon from '@assets/svg/socials/MenuIcon.vue'
   import StarMenu from '@assets/svg/stars/StarMenu.vue'
-  import type { menuButton } from '@/types'
+  import type { menuButton } from '~/types'
   import { scrollToSection } from '~/composables/useScrollTo'
 
   interface Props {

@@ -48,7 +48,7 @@
       button: {
         title: `Записаться на консультацию`,
         type: `primary`,
-        link: `link`,
+        link: `https://t.me/yaparovty`,
       },
       component: TelegramIcon,
     },
@@ -64,7 +64,7 @@
       button: {
         title: `Купить консультацию`,
         type: `secondary`,
-        link: `link`,
+        link: `https://t.me/yaparovty`,
       },
     },
     {
@@ -74,7 +74,7 @@
       description: `
       <ul>
         <li>✔ Безлимит на звонки</li>
-        <li>✔ Пет. проект</li>
+        <li>✔ Пет-проект</li>
         <li>✔ Учебные материалы и шпаргалки</li>
         <li>✔ Составление резюме и легенды</li>
         <li>✔ Мок-собесы</li>
@@ -85,7 +85,7 @@
       button: {
         title: `Купить тариф №1`,
         type: `secondary`,
-        link: `link`,
+        link: `https://t.me/yaparovty`,
       },
     },
     {
@@ -95,7 +95,7 @@
       description: `
       <ul>
         <li>✔ Безлимит на звонки</li>
-        <li>✔ Пет. проект</li>
+        <li>✔ Пет-проект</li>
         <li>✔ Учебные материалы и шпаргалки</li>
         <li>✔ Составление резюме и легенды</li>
         <li>✔ Мок-собесы</li>
@@ -106,7 +106,7 @@
       button: {
         title: `Купить тариф №2`,
         type: `secondary`,
-        link: `link`,
+        link: `https://t.me/yaparovty`,
       },
     },
   ]

@@ -6,7 +6,9 @@
 
     <h3 class="cover__exclusive">exclusive .</h3>
     <p class="cover__info">Python разработка, Mobile dev, Frontend, Golang, Product manager, ML</p>
-    <CoverButtons />
+    <client-only>
+      <CoverButtons />
+    </client-only>
   </section>
 </template>
 
@@ -92,3 +94,8 @@
     }
   }
 </style>
+
+<script setup lang="ts">
+import CoverButtons from './CoverButtons.vue'
+import { defineAsyncComponent } from 'vue'
+</script>

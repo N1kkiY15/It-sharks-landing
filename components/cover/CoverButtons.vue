@@ -91,6 +91,13 @@
         align-self: flex-end;
         gap: 20px;
       }
+
+      @media (max-width: 767px) {
+        min-width: 40px;
+        min-height: 40px;
+        width: auto;
+        height: 40px;
+      }
     }
 
     &__question {
@@ -130,6 +137,13 @@
       @media (min-width: $breakpoint-lg) {
         width: 100px;
         height: 100px;
+      }
+
+      @media (max-width: 767px) {
+        width: 40px;
+        height: 40px;
+        min-width: 40px;
+        min-height: 40px;
       }
 
       &--double {
